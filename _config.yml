@@ -84,6 +84,11 @@ type: atom
 path: atom.xml
 limit: 20
 
+# 友情链接
+links:
+  - title: 无名的旅人
+    url: https://jrdeng.github.io/
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
