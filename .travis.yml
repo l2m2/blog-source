@@ -1,0 +1,24 @@
+sudo: false
+language: node_js
+node_js: stable
+cache:
+  directories:
+    - node_module
+branches:
+  only:
+    - hexo
+before_install:
+  - git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
+install:
+  - npm install
+script:
+  - hexo clean
+  - hexo generate
+after_success:
+  - git config --global user.name "l2m2"
+  - git config --global user.email "l2m2lq@gmail.com"
+  - cd ./public
+  - git init
+  - git add .
+  - git commit -m "Update blog content by Travis CI"
+  - git push --force "https://${GH_TOKEN}@github.com/l2m2/l2m2.github.io.git" master:master
