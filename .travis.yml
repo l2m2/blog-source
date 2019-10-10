@@ -6,7 +6,7 @@ cache:
     - node_module
 branches:
   only:
-    - hexo
+    - master
 before_install:
   - git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
 install:
