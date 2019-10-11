@@ -2,7 +2,7 @@
 title: 使用WebP优化图片加载效率
 description: WebP是一种图像格式，可为Web上的图像提供卓越的无损和有损压缩。
 toc: true
-date: 2019-10-11 11:33:29
+date: 2019-03-22 11:33:29
 categories: 我爱前端
 tags: webp
 ---
