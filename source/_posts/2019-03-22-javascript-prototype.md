@@ -5,7 +5,7 @@ date: 2019-03-21 13:14:54
 description: 理解JavaScript原型是前端开发人员的必修课。
 categories: 我爱前端
 tags: 
-- web
+- Web
 - JavaScript
 ---
 ## 基础概念

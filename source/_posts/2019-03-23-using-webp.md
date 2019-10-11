@@ -4,7 +4,7 @@ description: WebP是一种图像格式，可为Web上的图像提供卓越的无
 toc: true
 date: 2019-03-22 11:33:29
 categories: 我爱前端
-tags: web
+tags: Web
 ---
 ## 1 什么是WebP?
 

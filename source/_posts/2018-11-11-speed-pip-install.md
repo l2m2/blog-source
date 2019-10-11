@@ -6,7 +6,7 @@ description: 解决从国外的源下载太慢的问题
 categories:
 - 锤子的锤
 tags:
-- python
+- Python
 ---
 解决从国外的源下载太慢的问题
 
