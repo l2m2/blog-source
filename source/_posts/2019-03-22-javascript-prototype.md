@@ -1,7 +1,7 @@
 ---
 title: 理解JavaScript中的原型和原型链
 toc: true
-date: 2019-10-11 13:14:54
+date: 2019-03-22 13:14:54
 description: 理解JavaScript原型是前端开发人员的必修课。
 categories: 我爱前端
 tags: 
