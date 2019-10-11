@@ -2,7 +2,7 @@
 title: Windows任务计划执行BAT时隐藏窗口
 toc: false
 date: 2017-09-01 16:04:41
-description:
+description: 消除小黑窗
 categories:
 - 锤子的锤
 tags:
