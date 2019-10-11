@@ -3,8 +3,6 @@ title: C++ Type Casting
 toc: true
 description: C++的类型转换详解
 date: 2018-03-12 00:00:00
-categories:
-- 锤子的锤
 tags:
 - C++
 ---

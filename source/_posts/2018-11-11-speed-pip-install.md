@@ -3,8 +3,6 @@ title: 解决pip install太慢的问题
 toc: false
 date: 2018-11-11 15:51:07
 description: 祖国万岁
-categories:
-- 锤子的锤
 tags:
 - Python
 ---

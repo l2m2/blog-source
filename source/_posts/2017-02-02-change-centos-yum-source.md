@@ -3,8 +3,6 @@ title: CentOS 7 切换yum源为阿里云源
 toc: false
 date: 2017-02-02 16:18:27
 description: 祖国万岁
-categories:
-- 锤子的锤
 tags:
 - CentOS
 ---

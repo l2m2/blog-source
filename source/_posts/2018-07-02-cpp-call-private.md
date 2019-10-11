@@ -3,8 +3,6 @@ title: C++访问私有函数
 toc: true
 description: 用贱招访问私有函数，你值得拥有
 date: 2018/7/2 00:00:00
-categories:
-- 贱招拆招
 tags:
 - C++
 ---

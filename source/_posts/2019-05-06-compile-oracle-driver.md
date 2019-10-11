@@ -3,8 +3,6 @@ title: Qt编译Oracle驱动
 toc: false
 date: 2019-05-06 15:56:18
 description: Windows下Qt连接Oracle数据库，需要重新编译qsqloci.dll。
-categories:
-- Qt Everywhere
 tags:
 - Qt
 ---

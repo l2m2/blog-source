@@ -3,8 +3,6 @@ title: VS Code自动添加文件头注释
 toc: false
 date: 2019-01-01 16:11:38
 description: 更方便的添加文件头注释
-categories:
-- 锤子的锤
 tags:
 - VS Code
 ---

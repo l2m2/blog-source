@@ -1,10 +1,8 @@
 ---
 title: CentOS安装GCC4.9
-toc: true
+toc: false
 date: 2017-03-06 16:22:10
 description: CentOS默认安装的GCC版本较低时需要
-categories:
-- 锤子的锤
 tags:
 - CentOS
 ---
