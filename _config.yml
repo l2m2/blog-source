@@ -90,8 +90,6 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
-baidu_site_verification: 037Vj8O0kz
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
