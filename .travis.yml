@@ -7,8 +7,8 @@ cache:
 branches:
   only:
     - master
-install:
-  - npm install
+# install:
+#   - npm install
 script:
   - hexo generate
 after_success:
