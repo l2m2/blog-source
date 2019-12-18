@@ -22,4 +22,4 @@ win32 {
 `CONFIG += skip_target_version_ext`表示生成的dll文件中不添加版本的后缀。
 
 效果如下：
-![](../images/add-version-to-library-file.png)
+![](/images/add-version-to-library-file.png)
