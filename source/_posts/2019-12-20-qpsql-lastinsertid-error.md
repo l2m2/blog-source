@@ -98,7 +98,7 @@ This controls whether `CREATE TABLE` and `CREATE TABLE AS` include an OID column
 
 The use of OIDs in user tables is considered deprecated, so most installations should leave this variable disabled. Applications that require OIDs for a particular table should specify `WITH OIDS` when creating the table. This variable can be enabled for compatibility with old applications that do not follow this behavior.
 
-文档说PostgreSQL8.0之后default_with_oids都为off了，然后确认了业务模块插入的表结果。
+文档说PostgreSQL8.0之后default_with_oids都为off了，然后确认了业务模块插入的表结构。
 
 感觉是Qt文档写错了（或者是我没理解到）。
 
