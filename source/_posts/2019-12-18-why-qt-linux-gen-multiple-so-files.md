@@ -183,6 +183,10 @@ total 312
 
 没有版本信息，总是依赖最新的so，无兼容性可言。
 
+---
+
+演示代码见 https://github.com/l2m2/shared-library-demo 
+
 ## Reference
 
 - [soname](https://en.wikipedia.org/wiki/Soname)
