@@ -8,6 +8,8 @@ tags:
 - Qt
 ---
 
+
+
 ## soname
 
 
@@ -19,10 +21,7 @@ tags:
 
 - [Configuring qmake](https://doc.qt.io/qt-5/qmake-environment-reference.html)
 - [What is the soname option for building shared libraries for ?](https://stackoverflow.com/questions/12637841/what-is-the-soname-option-for-building-shared-libraries-for)
-
-
-
-
+- [How do so shared object numbers work?](https://unix.stackexchange.com/questions/475/how-do-so-shared-object-numbers-work)
 
 
 
