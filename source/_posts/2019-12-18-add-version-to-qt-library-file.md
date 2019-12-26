@@ -1,11 +1,10 @@
----
 title: QMAKE为DLL添加版本信息
 toc: false
 date: 2019-12-18 15:13:07
 description: 在PRO文件中添加生成DLL文件的版本信息
 tags:
+
 - Qt
----
 
 在PRO文件中添加如下代码：
 
@@ -23,3 +22,19 @@ win32 {
 
 效果如下：
 ![](/images/add-version-to-library-file.png)
+
+### 在CPP中获取该版本
+
+在PRO文件中添加宏
+
+```
+VERSION = 3.3.0.0
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+```
+
+在CPP中使用宏
+
+```c++
+QCoreApplication::setApplicationVersion(QString(APP_VERSION));
+```
+
