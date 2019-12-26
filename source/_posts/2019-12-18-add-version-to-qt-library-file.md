@@ -1,11 +1,11 @@
+---
 title: QMAKE为DLL添加版本信息
 toc: false
 date: 2019-12-18 15:13:07
 description: 在PRO文件中添加生成DLL文件的版本信息
 tags:
-
 - Qt
-
+---
 在PRO文件中添加如下代码：
 
 ```
