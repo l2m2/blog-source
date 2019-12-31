@@ -25,7 +25,7 @@ Step 3: 下载gcc编译的依赖项
 
 Step 4: 运行configure
 ```
-./configure --prefix=/usr/gcc --disable-multilib
+./configure --prefix=/usr/local --enable-threads=posix --enable-checking=release --disable-multilib --enable-languages=c,c++
 ```
 Step 5: 编译
 ```
