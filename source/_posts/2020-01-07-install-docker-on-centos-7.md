@@ -57,6 +57,18 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service 
 [root@localhost ~]# systemctl start docker
 ```
 
+## 修改镜像源
+
+```bash
+[root@localhost docker]# cat /etc/docker/daemon.json 
+{
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://registry.docker-cn.com"
+  ]
+}
+```
+
 ## Docker安装PostgreSQL 10
 
 ```bash
