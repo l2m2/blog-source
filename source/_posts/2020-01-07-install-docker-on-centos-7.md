@@ -44,6 +44,19 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service to /usr/lib/systemd/system/docker.service.
 ```
 
+## 改变docker存储位置
+
+通常我们系统所在的硬盘比较小，会再挂载一个容量更大的硬盘作为数据存储用。
+
+以下命令用作改变docker默认的存储位置。
+
+```bash
+[root@localhost ~]# systemctl stop docker
+[root@localhost ~]# mv /var/lib/docker/ /data/docker/
+[root@localhost ~]# ln -s /data/docker/ /var/lib/docker
+[root@localhost ~]# systemctl start docker
+```
+
 ## Docker安装PostgreSQL 10
 
 ```bash
@@ -71,3 +84,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 cdcc4e0769f5        postgres:10.11      "docker-entrypoint..."   35 seconds ago      Up 34 seconds       0.0.0.0:5432->5432/tcp   pg10
 ```
 
+## Reference
+
+-  https://stackoverflow.com/questions/24309526/how-to-change-the-docker-image-installation-directory 
