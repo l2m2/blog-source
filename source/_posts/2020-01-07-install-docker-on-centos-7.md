@@ -5,7 +5,7 @@ date: 2020-01-07 15:14:11
 description: 记录一下
 tags:
 - Docker
-- Linux
+- CentOS
 ---
 
 ## 安装Docker
