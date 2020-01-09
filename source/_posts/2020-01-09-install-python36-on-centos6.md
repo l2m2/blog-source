@@ -14,7 +14,7 @@ CentOS 6上默认的Python版本是2.x，需要安装Python 3.6+。
 
 有很多安装方法，此处只列举其中两种: 
 
-### using Software Collections Repository (SCL)。
+### using Software Collections Repository (SCL)
 
 ```bash
 [root@ci-centos6 home]# yum install centos-release-scl
