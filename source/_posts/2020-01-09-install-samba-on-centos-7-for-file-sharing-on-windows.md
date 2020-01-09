@@ -1,6 +1,6 @@
 ---
 title: CentOS 7安装Samba与Windows共享文件夹
-toc: false
+toc: true
 date: 2020-01-09 17:47:02
 description: 现在你是Linux菜逼，以后你还是。~_~
 tags:
@@ -55,7 +55,7 @@ C:\Users\Administrator.CDPC011>net config workstation
 [root@192 ~]# cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
 ```
 
-### 匿名用户的文件夹共享
+### 公共文件夹共享
 
 先创建一个匿名用户共享的文件夹
 
@@ -105,6 +105,68 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/nmb.service to 
 [root@192 system]# systemctl restart smb
 [root@192 system]# systemctl restart nmb
 ```
+
+### 私密文件夹共享
+
+添加一个samba组，再添加用户到该组内
+
+```bash
+[root@192 ~]# groupadd sambagroup
+[root@192 ~]# usermod leon -aG sambagroup
+[root@192 ~]# smbpasswd -a leon
+New SMB password:
+Retype new SMB password:
+Added user leon.
+```
+
+再创建一个私密文件夹，并设置权限
+
+```bash
+[root@192 ~]# mkdir -p /home/data/samba/secure
+[root@192 ~]# chmod -R 0770 /home/data/samba/secure
+[root@192 ~]# chown -R root:sambagroup /home/data/samba/secure
+[root@192 ~]# chcon -t samba_share_t /home/data/samba/secure
+```
+
+然后再修改smb.conf
+
+```bash
+[root@192 ~]# cat /etc/samba/smb.conf
+# See smb.conf.example for a more detailed config file or
+# read the smb.conf manpage.
+# Run 'testparm' to verify the config is correct after
+# you modified it.
+
+[global]
+	workgroup = WORKGROUP
+	netbios name = srv22
+	security = user
+	map to guest = bad user
+[Anonymous]
+	comment = Anonymous File Server Share
+	path = /home/data/samba/anonymous
+	browsable = yes
+	writeable = yes
+	guest ok  = yes
+	read only = no
+	force user = nobodoy
+[Secure]
+	comment = Secure File Server Share
+	path = /home/data/samba/secure
+	vaild users = @sambagroup
+	guest ok = no
+	writable = yes
+	browsable = yes
+```
+
+再重启服务
+
+```bash
+[root@192 ~]# systemctl restart smb
+[root@192 ~]# systemctl restart nmb
+```
+
+测试完毕，打完收工！
 
 ## Reference
 
