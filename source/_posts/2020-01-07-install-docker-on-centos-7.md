@@ -73,7 +73,13 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service 
 
 ```bash
 [root@localhost ~]# docker pull postgres:10.11
-[root@localhost home]# docker run --name "pg10" -e POSTGRES_PASSWORD=TopLinker0510 -p 5432:5432 -d --restart "unless-stopped" -v /home/data/pgdata:/var/lib/postgresql/data postgres:10.11
+[root@localhost home]# docker run 
+  --name "pg10" \
+  -e POSTGRES_PASSWORD=TopLinker0510 \
+  -p 5432:5432 \
+  -d --restart "unless-stopped" \
+  -v /home/data/pgdata:/var/lib/postgresql/data \
+  postgres:10.11
 ```
 
 --name 容器名称
@@ -94,6 +100,32 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service 
 [root@localhost home]# docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 cdcc4e0769f5        postgres:10.11      "docker-entrypoint..."   35 seconds ago      Up 34 seconds       0.0.0.0:5432->5432/tcp   pg10
+```
+
+## Docker安装Microsoft SQL Server
+
+```bash
+[root@localhost ~]# docker pull mcr.microsoft.com/mssql/server:2017-latest
+[root@localhost data]# docker run \
+  --name "mssql" \
+  -e 'ACCEPT_EULA=Y' \
+  -e 'SA_PASSWORD=TopLinker0510' \
+  -p 1433:1433 \
+  -d --restart "unless-stopped" \
+  -v /home/data/mssqldata:/var/opt/mssql/data \
+  mcr.microsoft.com/mssql/server:2017-latest
+```
+
+## 进入容器
+
+```bash
+[root@iZuf61ti9rpeooj054hbpgZ ~]# docker exec -it pg10 bash
+```
+
+退出
+
+```bash
+root@6db088d66530:/# exit
 ```
 
 ## Reference
