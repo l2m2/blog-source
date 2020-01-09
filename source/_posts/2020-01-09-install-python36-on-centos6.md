@@ -82,7 +82,7 @@ Python 3.6.9
 编译
 
 ```bash
-[root@ci-centos6 Python-3.6.9]# ./configure --prefix=/usr/local/python3.6 --enable-optimizations
+[root@ci-centos6 Python-3.6.9]# ./configure --prefix=/usr/local --enable-optimizations
 [root@ci-centos6 Python-3.6.9]# make -j4
 [root@ci-centos6 Python-3.6.9]# make install
 ```
