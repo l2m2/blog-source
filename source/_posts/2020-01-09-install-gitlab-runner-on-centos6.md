@@ -5,6 +5,7 @@ date: 2020-01-09 09:24:30
 description: Runner Everywhere.
 tags:
 - GitLab
+- CI
 - CentOS
 ---
 
