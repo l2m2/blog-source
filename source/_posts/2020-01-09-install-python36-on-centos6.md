@@ -12,7 +12,9 @@ CentOS 6上默认的Python版本是2.x，需要安装Python 3.6+。
 
 ## 安装Python3.6
 
-有很多安装方法，此处只列举其中一种: using Software Collections Repository (SCL)。
+有很多安装方法，此处只列举其中两种: 
+
+### using Software Collections Repository (SCL)。
 
 ```bash
 [root@ci-centos6 home]# yum install centos-release-scl
@@ -53,7 +55,7 @@ Python 3.6.9
 
 **注意：** 这种方法你无法在bash之外使用python3。如果你切换了Terminal, 你的Python版本会恢复为之前的2.x.
 
-## 修改默认的Python为Python3.6
+**修改默认的Python为Python3.6**
 
 ```bash
 [root@ci-centos6 ~]# echo "alias python='/opt/rh/rh-python36/root/usr/bin/python'" >> /root/.bashrc
@@ -61,6 +63,28 @@ Python 3.6.9
 [root@ci-centos6 ~]# source /root/.bashrc
 [root@ci-centos6 ~]# python --version
 Python 3.6.9
+```
+
+### 编译安装
+
+下载源码
+
+```bash
+[root@ci-centos6 ~]# wget https://www.python.org/ftp/python/3.6.9/Python-3.6.9.tgz
+```
+
+解压
+
+```bash
+[root@ci-centos6 ~]# tar xvzf Python-3.6.9.tgz 
+```
+
+编译
+
+```bash
+[root@ci-centos6 Python-3.6.9]# ./configure --prefix=/usr/local/python3.6 --enable-optimizations
+[root@ci-centos6 Python-3.6.9]# make -j4
+[root@ci-centos6 Python-3.6.9]# make install
 ```
 
 ## Refercence
