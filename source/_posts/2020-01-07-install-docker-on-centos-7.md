@@ -73,11 +73,11 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/docker.service 
 
 ```bash
 [root@localhost ~]# docker pull postgres:10.11
-[root@localhost home]# docker run 
+[root@localhost home]# docker run \
   --name "pg10" \
   -e POSTGRES_PASSWORD=TopLinker0510 \
   -p 5432:5432 \
-  -d --restart "unless-stopped" \
+  -d --restart "always" \
   -v /home/data/pgdata:/var/lib/postgresql/data \
   postgres:10.11
 ```
@@ -111,7 +111,7 @@ cdcc4e0769f5        postgres:10.11      "docker-entrypoint..."   35 seconds ago 
   -e 'ACCEPT_EULA=Y' \
   -e 'SA_PASSWORD=TopLinker0510' \
   -p 1433:1433 \
-  -d --restart "unless-stopped" \
+  -d --restart "always" \
   -v /home/data/mssqldata:/var/opt/mssql/data \
   mcr.microsoft.com/mssql/server:2017-latest
 ```
