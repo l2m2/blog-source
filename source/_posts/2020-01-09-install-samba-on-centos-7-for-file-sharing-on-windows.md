@@ -61,7 +61,7 @@ C:\Users\Administrator.CDPC011>net config workstation
 
 ```bash
 [root@192 home]# mkdir -p /home/data/samba/anonymous
-[root@192 home]# chmod -R 0775 /home/data/samba/anonymous/
+[root@192 home]# chmod -R 0777 /home/data/samba/anonymous/
 [root@192 home]# chown -R nobody:nobody /home/data/samba/anonymous
 ```
 
@@ -75,14 +75,8 @@ C:\Users\Administrator.CDPC011>net config workstation
 
 ```bash
 [root@192 ~]# cat /etc/samba/smb.conf
-# See smb.conf.example for a more detailed config file or
-# read the smb.conf manpage.
-# Run 'testparm' to verify the config is correct after
-# you modified it.
-
 [global]
 	workgroup = WORKGROUP
-	netbios name = srv22
 	security = user
 	map to guest = bad user
 [Anonymous]
@@ -92,7 +86,7 @@ C:\Users\Administrator.CDPC011>net config workstation
 	writeable = yes
 	guest ok  = yes
 	read only = no
-	force user = nobody
+	public = yes
 ```
 
 启动服务且设置开机自启
@@ -131,15 +125,9 @@ Added user leon.
 然后再修改smb.conf
 
 ```bash
-[root@192 ~]# cat /etc/samba/smb.conf
-# See smb.conf.example for a more detailed config file or
-# read the smb.conf manpage.
-# Run 'testparm' to verify the config is correct after
-# you modified it.
-
+[root@192 samba]# cat /etc/samba/smb.conf
 [global]
 	workgroup = WORKGROUP
-	netbios name = srv22
 	security = user
 	map to guest = bad user
 [Anonymous]
@@ -149,11 +137,11 @@ Added user leon.
 	writeable = yes
 	guest ok  = yes
 	read only = no
-	force user = nobodoy
+	public = yes
 [Secure]
 	comment = Secure File Server Share
 	path = /home/data/samba/secure
-	vaild users = @sambagroup
+	valid users = @sambagroup
 	guest ok = no
 	writable = yes
 	browsable = yes
@@ -171,3 +159,6 @@ Added user leon.
 ## Reference
 
 -  https://www.tecmint.com/install-samba4-on-centos-7-for-file-sharing-on-windows/ 
+
+-  https://www.samba.org/samba/docs/4.7/man-html/smb.conf.5.html 
+
