@@ -1,5 +1,5 @@
 ---
-title: CentOS 6 安装 Python3.6
+title: CentOS 6安装 Python3.6
 toc: false
 date: 2020-01-09 11:09:38
 description: Fuck CentOS 6.
