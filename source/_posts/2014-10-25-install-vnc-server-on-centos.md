@@ -75,7 +75,7 @@ yum remove tigervnc-server
   yum groupinstall "GNOME Desktop" "Graphical Administration Tools"
   ```
 
-- 启动服务时报错`Job for vncserver@:1.service failed because a configured resource limit was exceeded. See "systemctl status vncserver@:1.service" and "journalctl -xe" for details.`
+- 启动服务时报错: "Job for vncserver@:1.service failed because a configured resource limit was exceeded. See "systemctl status vncserver@:1.service" and "journalctl -xe" for details."
 
   ```
   rm -f /tmp/.X11-unix/X1
@@ -83,7 +83,7 @@ yum remove tigervnc-server
 
   <https://serverfault.com/questions/925061/unable-to-start-vnc-server-configured-resource-limit-was-exceeded>
   
-- 在CentOS 7上出现` runuser: user <USER> does not exist`的错误
+- 在CentOS 7上出现 "runuser: user <USER> does not exist"的错误
 
   ```bash
   pkill vnc
