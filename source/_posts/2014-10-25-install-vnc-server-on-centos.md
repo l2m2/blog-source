@@ -14,7 +14,7 @@ tags:
    yum install tigervnc-server
    ```
 
-2. 配置密码，你可以同时配置一个view only的密码
+2. 配置密码
 
    ```sh
    vncpasswd
@@ -82,7 +82,16 @@ yum remove tigervnc-server
   ```
 
   <https://serverfault.com/questions/925061/unable-to-start-vnc-server-configured-resource-limit-was-exceeded>
+  
+- 在CentOS 7上出现` runuser: user <USER> does not exist`的错误
+
+  ```bash
+  pkill vnc
+  systemctl enable vncserver@:1
+  systemctl start vncserver@:1
+  ```
 
 ## Reference
 
 - [How to Install and Configure VNC Server in CentOS 7](https://www.tecmint.com/install-and-configure-vnc-server-in-centos-7/)
+-  https://pukdbros.wordpress.com/2017/09/14/centos7-vncserver-start-failed-exit-code/ 
