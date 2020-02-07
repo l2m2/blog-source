@@ -113,6 +113,8 @@ Retype new SMB password:
 Added user leon.
 ```
 
+注意：添加的用户必须是系统用户，可以通过useradd进行添加。
+
 再创建一个私密文件夹，并设置权限
 
 ```bash
