@@ -185,7 +185,7 @@ Database = s_cell
 测试
 
 ```bash
-[root@localhost ~]# isql -v TEST_DS_1 sa TopLinker0510
+[root@localhost ~]# isql -v TEST_DS_1 sa 123456
 +---------------------------------------+
 | Connected!                            |
 |                                       |
@@ -220,7 +220,7 @@ SQLRowCount returns 1
 测试
 
 ```bash
-[root@localhost ~]# tsql -S TEST_DS_2 -U sa -P TopLinker0510
+[root@localhost ~]# tsql -S TEST_DS_2 -U sa -P 123456
 locale is "en_US.UTF-8"
 locale charset is "UTF-8"
 using default charset "UTF-8"
