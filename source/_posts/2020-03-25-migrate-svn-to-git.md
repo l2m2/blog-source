@@ -32,7 +32,7 @@ tags:
 
    users.txt是步骤1的用户映射关系文件路径。
 
-   http://svn.xxx.net/svn/svnproject是svn的地址。
+   http://svn.xxx.net/svn/svnproject 是svn的地址。
 
    gitproject是本地git仓库的名称。
 
