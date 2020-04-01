@@ -2,11 +2,13 @@
 title: MacOS玩Python3的正确姿势
 toc: false
 date: 2020-03-31 22:26:00
-description: 推荐使用pyenv
+description: 使用pyenv + virtualenvwrapper
 tags:
 - Python
 - MacOS
 ---
+
+## Pyenv
 
 **核心原则**
 
@@ -58,6 +60,81 @@ pip 19.2.3 from /Users/l2m2/.pyenv/versions/3.7.5/lib/python3.7/site-packages/pi
 ```
 
 我们通过上面的方式管理多个python版本，并按照自己的需要设置默认的python版本。
+
+## virtualenvwrapper
+
+顾名思义，这货就是大名鼎鼎的`virtualenv`的包装，用于配置Python虚拟环境。使用虚拟环境可以更好的隔离每个项目各自的包依赖，更靠谱。
+
+安装
+
+```bash
+$ pyenv global 3.7.5
+# Be sure to keep the $() syntax in this command so it can evaluate
+$ $(pyenv which python3) -m pip install virtualenvwrapper
+```
+
+配置
+
+```bash
+$ echo 'export WORKON_HOME=~/.virtualenvs' >> .bash_profile
+$ echo 'mkdir -p $WORKON_HOME' >> .bash_profile
+$ echo '. ~/.pyenv/versions/3.7.5/bin/virtualenvwrapper.sh' >> .bash_profile
+```
+
+打开一个新的终端，或者在当前终端执行`exec /bin/bash -l`, 可以看到`virtualenvwrapper`在初始化环境
+
+```bash
+$ exec /bin/bash -l
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/premkproject
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/postmkproject
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/initialize
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/premkvirtualenv
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/postmkvirtualenv
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/prermvirtualenv
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/postrmvirtualenv
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/predeactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/postdeactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/preactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/postactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/get_env_details
+```
+
+现在可以愉快的玩耍虚拟环境了
+
+创建一个虚拟环境testenv1
+
+```bash
+$ mkvirtualenv testenv1
+created virtual environment CPython3.7.5.final.0-64 in 344ms
+  creator CPython3Posix(dest=/Users/l2m2/.virtualenvs/testenv1, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=/Users/l2m2/Library/Application Support/virtualenv/seed-app-data/v1.0.1)
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/testenv1/bin/predeactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/testenv1/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/testenv1/bin/preactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/testenv1/bin/postactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/testenv1/bin/get_env_details
+(testenv1) $ 
+```
+
+退出虚拟环境testenv1
+
+```bash
+(testenv1) $ deactivate
+```
+
+切换虚拟环境
+
+```bash
+(testenv2) $ workon testenv1
+(testenv1) $ 
+```
+
+删除虚拟环境
+
+```bash
+$ rmvirtualenv testenv2
+```
 
 ## Reference
 
