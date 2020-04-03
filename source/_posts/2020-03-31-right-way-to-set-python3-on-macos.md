@@ -140,3 +140,4 @@ $ rmvirtualenv testenv2
 
 - https://opensource.com/article/19/5/python-3-default-mac
 - https://opensource.com/article/19/6/python-virtual-environments-mac
+
