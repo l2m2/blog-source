@@ -1,10 +1,10 @@
 ---
-title: 网络白痴的基础课(一)
+title: 我是网络白痴(一)
 toc: true
 date: 2020-04-12 17:43:00
-description: 列举一些常见的网络术语，以及Linux下常见的与网络相关的命令
+description: 网关、子网掩码、路由。CentOS 7 下修改IP, 修改路由。
 tags:
-- Linux
+- CentOS
 - 网络
 ---
 
