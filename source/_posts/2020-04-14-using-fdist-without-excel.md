@@ -1,5 +1,5 @@
 ---
-title: Qt中调用Excel中的函数
+title: Qt调用Excel中的函数
 toc: false
 date: 2020-04-14 16:54:00
 description: QAxObject不打开Excel，直接调
