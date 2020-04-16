@@ -1,0 +1,188 @@
+---
+title: Git入门
+toc: true
+date: 2015-01-01 12:59:00
+description: 给傻逼看的Git基础指南
+tags:
+- Git
+---
+
+## 1 安装Git
+
+###  1.1 Windows
+
+从官网[下载](https://git-scm.com/download/win), 直接默认安装即可。
+
+##  2  从远程仓库克隆开始一个项目
+
+###  2.1  一个基本操作的示例
+
+GitLab上已创建了空白的仓库，先克隆远程仓库到本地
+
+```
+$ git clone git@gitlab.topibd.net:leon.li/git-demo.git
+```
+
+创建一个README.md文件，并提交到本地仓库。
+
+```
+$ cd git-demo/
+$ touch README.md
+$ git add README.md
+$ git commit -m "create readme."
+```
+
+推送到远程master分支。
+
+```
+$ git push
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 206 bytes | 103.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To gitlab.topibd.net:leon.li/git-demo.git
+ * [new branch]      master -> master
+```
+
+###  2.2  创建develop分支并推送到远程
+
+在我们现行的项目Git规范下，一般有两个分支，master和develop。
+
+我们先看看本地和远程有哪些分支。
+
+```
+$ git branch -a
+* master
+  remotes/origin/master
+```
+
+我们先在本地创建一个develop分支。
+
+```
+$ git branch develop
+$ git branch -a
+  develop
+* master
+  remotes/origin/master
+```
+
+可以看到，我们已成功创建了develop分支。
+
+先切换到develop分支。
+
+```
+$ git checkout develop
+Switched to branch 'develop'
+```
+
+再推送到远程develop(此时远程还没有develop分支)。
+
+```
+$ git push -u origin develop
+Total 0 (delta 0), reused 0 (delta 0)
+remote:
+remote: To create a merge request for develop, visit:
+remote:   http://gitlab.topibd.net/leon.li/git-demo/merge_requests/new?merge_request%5Bsource_branch%5D=develop
+remote:
+To gitlab.topibd.net:leon.li/git-demo.git
+ * [new branch]      develop -> develop
+Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+```
+
+## 2. 3  用Git Flow创建develop分支
+
+如果你安装了Git Flow, 那么可以以下面的姿势来玩。
+
+```
+$ git flow init -d 
+```
+
+此时本地已创建了develop分支，并自动切换到develop了。
+
+再推送到远程。
+
+```
+$ git push -u origin develop
+```
+
+##  3 从本地仓库开始一个项目
+
+如果项目的远程仓库还没有创建，我们可能需要从本地仓库开始一个项目。
+
+```
+$ mkdir git-demo2
+$ cd git-demo2
+$ git init
+```
+
+本地仓库建好了。
+
+创建一个README.md，并提交到本地仓库。
+
+```
+$ touch README.md
+$ git add README.md
+$ git commit -m "create readme."
+[master (root-commit) 1f72271] create readme.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+```
+
+假设此时远程仓库已经建好了，添加远程仓库。
+
+```
+$ git remote add origin git@gitlab.topibd.net:leon.li/git-demo2.git
+```
+
+再推送到远程仓库。
+
+```
+$ git push -u origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 206 bytes | 206.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To gitlab.topibd.net:leon.li/git-demo2.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+```
+
+## 4  常用Git命令
+
+分支
+
+```
+# 查看本地分支
+git branch
+# 查看所有分支（包括远程分支）
+git branch -a
+# 创建本地分支
+git branch br1
+# 切换分支
+git checkout br1
+# 删除本地分支
+git branch -d br1
+# 删除远程分支
+git push origin :br1
+```
+
+远程仓库
+
+```
+# 克隆到本地
+git clone git@gitlab.topibd.net:leon.li/git-demo.git
+# 添加远程仓库
+git remote add origin git@gitlab.topibd.net:leon.li/git-demo2.git
+# 修改远程仓库
+git remote set-url origin new.git.url/here
+# 查看远程仓库
+git remote show origin
+# 同步远程已经删除的分支
+git remote prune origin
+```
+
+查看日志
+
+```
+# 查看某个文件的提交记录
+git log calculate.js
+git log --pretty=oneline calculate.js
+```
