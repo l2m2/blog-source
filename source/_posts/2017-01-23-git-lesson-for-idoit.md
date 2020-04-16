@@ -1,7 +1,7 @@
 ---
 title: Git入门
 toc: true
-date: 2015-01-01 12:59:00
+date: 2017-01-23 12:59:00
 description: 给傻逼看的Git基础指南
 tags:
 - Git
