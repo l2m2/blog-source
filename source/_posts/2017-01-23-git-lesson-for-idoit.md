@@ -147,9 +147,27 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 ## 4  常用Git命令
 
-分支
+### 4.1 配置
 
+```bash
+# 查看git所有设置
+git config --list
+# 设置socks5代理
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+# 只代理github.com
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
+# 取消代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+# 通过修改postBuffer提升git clone速度
+git config --global http.postBuffer 524288000
 ```
+
+### 4.2 分支
+
+```bash
 # 查看本地分支
 git branch
 # 查看所有分支（包括远程分支）
@@ -164,9 +182,9 @@ git branch -d br1
 git push origin :br1
 ```
 
-远程仓库
+### 4.3 远程仓库
 
-```
+```bash
 # 克隆到本地
 git clone git@gitlab.xxx.net:leon.li/git-demo.git
 # 添加远程仓库
@@ -179,9 +197,9 @@ git remote show origin
 git remote prune origin
 ```
 
-查看日志
+### 4.4 查看日志
 
-```
+```bash
 # 查看某个文件的提交记录
 git log calculate.js
 git log --pretty=oneline calculate.js
