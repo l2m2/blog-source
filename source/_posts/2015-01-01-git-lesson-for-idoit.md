@@ -39,7 +39,7 @@ $ git push
 Counting objects: 3, done.
 Writing objects: 100% (3/3), 206 bytes | 103.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To gitlab.topibd.net:leon.li/git-demo.git
+To gitlab.xxx.net:leon.li/git-demo.git
  * [new branch]      master -> master
 ```
 
@@ -168,9 +168,9 @@ git push origin :br1
 
 ```
 # 克隆到本地
-git clone git@gitlab.topibd.net:leon.li/git-demo.git
+git clone git@gitlab.xxx.net:leon.li/git-demo.git
 # 添加远程仓库
-git remote add origin git@gitlab.topibd.net:leon.li/git-demo2.git
+git remote add origin git@gitlab.xxx.net:leon.li/git-demo2.git
 # 修改远程仓库
 git remote set-url origin new.git.url/here
 # 查看远程仓库
