@@ -2,14 +2,13 @@
 title: 我是网络白痴(二)：利用firewall-cmd进行端口转发
 toc: true
 date: 2020-04-16 12:59:00
-description: 利用firewall-cmd进行端口转发
+description: 利用firewall-cmd进行端口转发。一些常见的firewall-cmd命令。
 tags:
 - CentOS
 - 网络
 ---
 
 本人是网络白痴一个，写此文纯属个人备忘， 无任何指导意义。欢迎指正。
-
 本文中所有的命令都是基于`CentOS 7` 环境测试。
 
 
