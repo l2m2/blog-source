@@ -88,7 +88,7 @@ To gitlab.xxx.net:leon.li/git-demo.git
 Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 ```
 
-## 2. 3  用Git Flow创建develop分支
+### 2. 3  用Git Flow创建develop分支
 
 如果你安装了Git Flow, 那么可以以下面的姿势来玩。
 
