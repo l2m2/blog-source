@@ -20,7 +20,7 @@ tags:
 GitLab上已创建了空白的仓库，先克隆远程仓库到本地
 
 ```
-$ git clone git@gitlab.topibd.net:leon.li/git-demo.git
+$ git clone git@gitlab.xxx.net:leon.li/git-demo.git
 ```
 
 创建一个README.md文件，并提交到本地仓库。
@@ -81,9 +81,9 @@ $ git push -u origin develop
 Total 0 (delta 0), reused 0 (delta 0)
 remote:
 remote: To create a merge request for develop, visit:
-remote:   http://gitlab.topibd.net/leon.li/git-demo/merge_requests/new?merge_request%5Bsource_branch%5D=develop
+remote:   http://gitlab.xxx.net/leon.li/git-demo/merge_requests/new?merge_request%5Bsource_branch%5D=develop
 remote:
-To gitlab.topibd.net:leon.li/git-demo.git
+To gitlab.xxx.net:leon.li/git-demo.git
  * [new branch]      develop -> develop
 Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 ```
@@ -130,7 +130,7 @@ $ git commit -m "create readme."
 假设此时远程仓库已经建好了，添加远程仓库。
 
 ```
-$ git remote add origin git@gitlab.topibd.net:leon.li/git-demo2.git
+$ git remote add origin git@gitlab.xxx.net:leon.li/git-demo2.git
 ```
 
 再推送到远程仓库。
@@ -140,7 +140,7 @@ $ git push -u origin master
 Counting objects: 3, done.
 Writing objects: 100% (3/3), 206 bytes | 206.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To gitlab.topibd.net:leon.li/git-demo2.git
+To gitlab.xxx.net:leon.li/git-demo2.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 ```
