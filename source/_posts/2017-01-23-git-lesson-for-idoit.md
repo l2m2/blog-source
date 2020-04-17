@@ -37,7 +37,7 @@ $ git commit -m "create readme."
 ```
 $ git push
 Counting objects: 3, done.
-Writing objects: 100% (3/3), 206 bytes | 103.00 KiB/s, done.
+Writing objects: 100% (3/3), 207 bytes | 103.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 To gitlab.xxx.net:leon.li/git-demo.git
  * [new branch]      master -> master
