@@ -1,7 +1,7 @@
 ---
 title: 我是网络白痴(三)：添加永久路由
 toc: false
-date: 2020-04-21 15:42:00
+date: 2020-04-21 15:43:00
 description: 修改/etc/sysconfig/network-scripts/route-${interface}
 tags:
 - CentOS
