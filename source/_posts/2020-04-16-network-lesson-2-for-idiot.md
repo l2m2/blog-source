@@ -164,7 +164,8 @@ $ service iptables restart
 
 ```
 #-A INPUT -j REJECT --reject-with icmp-host-prohibited 
-#-A FORWARD -j REJECT --reject-with icmp-host-prohibited 
+#-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+# 这两条的意思是在INPUT表和FORWARD表中拒绝所版有其他不符合上述任何一条规则的数据包。并且发送一条host prohibited的消息给被拒绝的主机。
 ```
 
 查看规则
