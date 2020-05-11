@@ -204,6 +204,7 @@ int main(int argc, char *argv[])
     int result = reduce<int>(v, [](int prev, int curr){ return prev + curr; });
     std::cout << result << std::endl;
     return 0;
+}
 ```
 
 ## Reference
