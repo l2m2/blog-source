@@ -128,7 +128,88 @@ console.log(result);
 
 ## C++中的Map/Reduce
 
+### Map
+
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main(int argc, char *argv[])
+{
+    std::vector<int> v{2, 3, 4};
+    std::transform(v.begin(), v.end(), v.begin(), [](int i) { return i * 2; });
+    std::for_each(v.begin(), v.end(), [](int i) { std::cout << i << std::endl; });
+    return 0;
+}
+// 4
+// 6
+// 8
+```
+
+上面这种方式会直接修改原序列。
+
+如果我们不期望修改原序列，应该这样 ：
+
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+int main(int argc, char *argv[])
+{
+    std::vector<int> v{2, 3, 4};
+    std::vector<int> ordinals;
+    std::transform(v.begin(), v.end(), std::back_inserter(ordinals), [](int i) { return i * 2; });
+    std::for_each(ordinals.begin(), ordinals.end(), [](int i) { std::cout << i << std::endl; });
+    return 0;
+}
+```
+
+### Reduce
+
+直到C++17标准，才加入了`std::reduce`.
+
+一个简单的替代实现：
+
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <functional>
+
+template <typename T>
+T reduce(const std::vector<T>& data,
+         const std::function<T(T,T)>& reduceFn) {
+    typedef typename std::vector<T>::const_iterator Iterator;
+    Iterator it = data.cbegin();
+    Iterator end = data.cend();
+    if (it == end) {
+        throw 0;
+    } else {
+        T accumulator = *it;
+        ++it;
+        for (; it != end; ++it) {
+            accumulator = reduceFn(accumulator, *it);
+        }
+        return accumulator;
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    std::vector<int> v{2, 3, 4};
+    int result = reduce<int>(v, [](int prev, int curr){ return prev + curr; });
+    std::cout << result << std::endl;
+    return 0;
+```
+
 ## Reference
 
 - https://en.wikipedia.org/wiki/MapReduce
 - https://www.liaoxuefeng.com/wiki/897692888725344/989703124920288
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+- https://en.cppreference.com/w/cpp/algorithm/reduce
+- https://en.cppreference.com/w/cpp/algorithm/transform
