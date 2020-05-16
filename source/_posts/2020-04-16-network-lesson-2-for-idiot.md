@@ -1,5 +1,5 @@
 ---
-title: 我是网络白痴(二)：利用firewall-cmd进行端口转发
+title: 我是网络白痴(二)：利用firewall-cmd/iptables进行端口转发
 toc: false
 date: 2020-04-16 12:59:00
 description: 利用firewall-cmd或iptables进行端口转发。一些常见的firewall-cmd命令。
