@@ -1,6 +1,6 @@
 ---
 title: MacOS玩Python3的正确姿势
-toc: false
+toc: true
 date: 2020-03-31 22:26:00
 description: 使用pyenv + virtualenvwrapper
 tags:
@@ -134,6 +134,41 @@ virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/testenv1/bin/ge
 
 ```bash
 $ rmvirtualenv testenv2
+```
+
+## 最佳实践
+
+用你的项目名称作为虚拟环境的名称。
+
+```bash
+$ mkvirtualenv $(basename $(pwd))
+created virtual environment CPython3.7.5.final.0-64 in 293ms
+  creator CPython3Posix(dest=/Users/l2m2/.virtualenvs/django-demo1, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=/Users/l2m2/Library/Application Support/virtualenv/seed-app-data/v1.0.1)
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/django-demo1/bin/predeactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/django-demo1/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/django-demo1/bin/preactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/django-demo1/bin/postactivate
+virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/django-demo1/bin/get_env_details
+(django-demo1) $ workon
+django-demo1
+(django-demo1) $ deactivate
+```
+
+这样下次你进入项目启用虚拟环境。只需要：
+
+```bash
+$ cd django-demo1/
+$ workon .
+(django-demo1) $ 
+```
+
+当然，你可以安全的删除当前的虚拟环境。
+
+```bash
+$ cd django-demo1/
+$ rmvirtualenv $(basename $(pwd))
 ```
 
 ## Reference
