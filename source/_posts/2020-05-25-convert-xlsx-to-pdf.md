@@ -49,6 +49,24 @@ try {
 
 更详细的代码在[这里](https://github.com/l2m2/excel2pdf)。
 
+**在Windows 服务中运行可能遇到的问题** 
+
+在我们的实际情况中，需要在Windows服务中运行。
+
+经测试，在Windows Server 2016 / Windows 10中会出现调用COM组件的权限问题。
+
+**解决方案**：
+
+服务以特定账户登录，如下图：
+
+![](/images/excel2pdf-as-windows-service.png)
+
+且保证有以下系统目录
+
+C:\Windows\System32\config\systemprofile\Desktop
+
+C:\Windows\SysWOW64\config\systemprofile\Desktop
+
 ## Linux
 
 ### 使用 GOTENBERG
