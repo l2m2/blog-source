@@ -187,6 +187,8 @@ git push origin :br1
 ```bash
 # 克隆到本地
 git clone git@gitlab.xxx.net:leon.li/git-demo.git
+# 只克隆最近一个commit
+git clone git@gitlab.xxx.net:leon.li/git-demo.git --depth=1
 # 添加远程仓库
 git remote add origin git@gitlab.xxx.net:leon.li/git-demo2.git
 # 修改远程仓库
