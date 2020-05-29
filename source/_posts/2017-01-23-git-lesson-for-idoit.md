@@ -19,13 +19,13 @@ tags:
 
 GitLab上已创建了空白的仓库，先克隆远程仓库到本地
 
-```
+```bash
 $ git clone git@gitlab.xxx.net:leon.li/git-demo.git
 ```
 
 创建一个README.md文件，并提交到本地仓库。
 
-```
+```bash
 $ cd git-demo/
 $ touch README.md
 $ git add README.md
@@ -34,7 +34,7 @@ $ git commit -m "create readme."
 
 推送到远程master分支。
 
-```
+```bash
 $ git push
 Counting objects: 3, done.
 Writing objects: 100% (3/3), 207 bytes | 103.00 KiB/s, done.
@@ -49,7 +49,7 @@ To gitlab.xxx.net:leon.li/git-demo.git
 
 我们先看看本地和远程有哪些分支。
 
-```
+```bash
 $ git branch -a
 * master
   remotes/origin/master
@@ -57,7 +57,7 @@ $ git branch -a
 
 我们先在本地创建一个develop分支。
 
-```
+```bash
 $ git branch develop
 $ git branch -a
   develop
@@ -69,14 +69,14 @@ $ git branch -a
 
 先切换到develop分支。
 
-```
+```bash
 $ git checkout develop
 Switched to branch 'develop'
 ```
 
 再推送到远程develop(此时远程还没有develop分支)。
 
-```
+```bash
 $ git push -u origin develop
 Total 0 (delta 0), reused 0 (delta 0)
 remote:
@@ -92,7 +92,7 @@ Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 
 如果你安装了Git Flow, 那么可以以下面的姿势来玩。
 
-```
+```bash
 $ git flow init -d 
 ```
 
@@ -100,7 +100,7 @@ $ git flow init -d
 
 再推送到远程。
 
-```
+```bash
 $ git push -u origin develop
 ```
 
@@ -108,7 +108,7 @@ $ git push -u origin develop
 
 如果项目的远程仓库还没有创建，我们可能需要从本地仓库开始一个项目。
 
-```
+```bash
 $ mkdir git-demo2
 $ cd git-demo2
 $ git init
@@ -118,7 +118,7 @@ $ git init
 
 创建一个README.md，并提交到本地仓库。
 
-```
+```bash
 $ touch README.md
 $ git add README.md
 $ git commit -m "create readme."
@@ -129,13 +129,13 @@ $ git commit -m "create readme."
 
 假设此时远程仓库已经建好了，添加远程仓库。
 
-```
+```bash
 $ git remote add origin git@gitlab.xxx.net:leon.li/git-demo2.git
 ```
 
 再推送到远程仓库。
 
-```
+```bash
 $ git push -u origin master
 Counting objects: 3, done.
 Writing objects: 100% (3/3), 206 bytes | 206.00 KiB/s, done.
@@ -197,6 +197,10 @@ git remote set-url origin new.git.url/here
 git remote show origin
 # 同步远程已经删除的分支
 git remote prune origin
+# 提交到远程源origin的develop分支
+git push origin develop
+# 关联远程分支并提交，这样每次不用指定远程的源和分支，只需git pull 或 git push
+git push -u origin develop
 ```
 
 ### 4.4 查看日志
