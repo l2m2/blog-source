@@ -176,6 +176,8 @@ git branch -a
 git branch br1
 # 切换分支
 git checkout br1
+# 创建分支并切换
+git checkout -b br1
 # 删除本地分支
 git branch -d br1
 # 删除远程分支
