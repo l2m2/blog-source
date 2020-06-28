@@ -7,6 +7,26 @@ tags:
 - Docker
 ---
 
+## 离线安装docker
+
+在有docker环境的机器上运行：
+
+```bash
+$ yumdownloader --resolve docker-ce
+```
+
+将会生成`docker-ce-19.03.11-3.el7.x86_64.rpm`类似的rpm包。
+
+再在目标机上安装rpm包。
+
+```bash
+$ rpm -ivh docker-ce-19.03.11-3.el7.x86_64.rpm
+```
+
+安装过程中可能会缺少其他rpm包，再去下载对应的离线rpm包安装即可。
+
+## 离线安装docker镜像
+
 以安装mssql为例：
 
 在有网络的环境下pull
