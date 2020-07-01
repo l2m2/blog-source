@@ -116,6 +116,17 @@ cdcc4e0769f5        postgres:10.11      "docker-entrypoint..."   35 seconds ago 
   mcr.microsoft.com/mssql/server:2017-latest
 ```
 
+## Docker安装nginx
+
+```bash
+$ docker run --name topikm6doc \
+-p 8888:80 \
+-d \ 
+--rm \
+-v /data/docker_data/topikm6doc/html:/usr/share/nginx/html \
+nginx
+```
+
 ## 进入容器
 
 ```bash
