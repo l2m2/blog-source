@@ -214,3 +214,15 @@ git push -u origin develop
 git log calculate.js
 git log --pretty=oneline calculate.js
 ```
+
+### 4.5 提交/合并/撤销
+
+```bash
+# 撤销本地的最近一次提交
+# --soft 不删除改动代码，只撤销commit
+# --hard 删除改动代码，恢复到上一次的commit状态
+git reset --soft HEAD^
+# 修改最近一次提交的注释
+git commit --amend -m "New commit message"
+```
+
