@@ -62,3 +62,4 @@ export ROOT_139_SSHPASS=TopLinker0510028
 ## Reference
 
 - https://stackoverflow.com/questions/58094583/gitlab-pipeline-fails-when-using-rsync-to-upload-to-staging-server
+- https://codeburst.io/gitlab-build-and-push-to-a-server-via-ssh-6d27ca1bf7b4
