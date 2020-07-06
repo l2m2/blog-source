@@ -9,7 +9,7 @@ tags:
 
 1. 通过`ssh-keygen`生成公钥和私钥
 
-   如果已有。则可以跳过此步骤。
+   如果已有，则可以跳过此步骤。
 
    ```bash
    $ ssh-keygen -t rsa -b 4096 -C "l2m2 home mac"
