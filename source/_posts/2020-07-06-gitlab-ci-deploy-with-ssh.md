@@ -20,7 +20,7 @@ linux_develop:
   tags:
     - centos6_cd
   script:
-  	- export SSHPASS=$ROOT_139_SSHPASS
+    - export SSHPASS=$ROOT_139_SSHPASS
     - python ci/build.py -p $CI_PROJECT_DIR/src/$CI_PROJECT_NAME.pro -b $CI_PROJECT_DIR/build/$CI_COMMIT_REF_NAME/$CI_JOB_NAME -m release
     - python ci/build.py -p $CI_PROJECT_DIR/qdoc/$CI_PROJECT_NAME-qdoc.pro -b $CI_PROJECT_DIR/build/$CI_COMMIT_REF_NAME/$CI_JOB_NAME -m release
     - sshpass -e scp -o stricthostkeychecking=no -prq qdoc/html/. root@140.197.105.14:/data/docker_data/topikm6doc/html/topikm6-twidget/
