@@ -20,10 +20,11 @@ linux_develop:
   tags:
     - centos6_cd
   script:
-    - export SSHPASS=$ROOT_139_SSHPASS
     - python ci/build.py -p $CI_PROJECT_DIR/src/$CI_PROJECT_NAME.pro -b $CI_PROJECT_DIR/build/$CI_COMMIT_REF_NAME/$CI_JOB_NAME -m release
     - python ci/build.py -p $CI_PROJECT_DIR/qdoc/$CI_PROJECT_NAME-qdoc.pro -b $CI_PROJECT_DIR/build/$CI_COMMIT_REF_NAME/$CI_JOB_NAME -m release
-    - sshpass -e scp -o stricthostkeychecking=no -prq qdoc/html/. root@140.197.105.14:/data/docker_data/topikm6doc/html/topikm6-twidget/
+    - export SSHPASS=$TOPIKM6_DOC_SERVER_SSHPASS
+    - sshpass -e scp -o stricthostkeychecking=no -prq qdoc/html/. $TOPIKM6_DOC_SERVER:/data/docker_data/topikm6doc/html/$CI_PROJECT_NAME/
+    - cp -TR qdoc/html/. $TOPIKM6_DOCS/$CI_PROJECT_NAME/
 ```
 
 `sshpass` 提供在命令行中直接输入密码进行SSH操作，而不需要交互。
@@ -32,7 +33,7 @@ linux_develop:
 
 **最佳实践**
 
-在CI配置中增加`export SSHPASS=$ROOT_139_SSHPASS`，
+在CI配置中增加`export SSHPASS=$TOPIKM6_DOC_SERVER_SSHPASS`，
 
 然后在Runner中的`.bash_profile`中设定密码。
 
@@ -56,7 +57,7 @@ QT_HOME=/opt/Qt5.6.3
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64:/usr/local/lib
 export PATH=$PATH:/opt/Qt5.6.3/5.6.3/gcc_64/bin:/opt/Qt5.6.3/Tools/QtCreator/bin
 export QT_INSTALL_DOCS=/opt/Qt5.6.3/Docs/Qt-5.6.3
-export ROOT_139_SSHPASS=TopLinker0510028
+export TOPIKM6_DOC_SERVER_SSHPASS=xxx
 ```
 
 ## Reference
