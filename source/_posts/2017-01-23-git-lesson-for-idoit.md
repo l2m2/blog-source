@@ -213,11 +213,18 @@ git push -u origin develop
 # 查看某个文件的提交记录
 git log calculate.js
 git log --pretty=oneline calculate.js
+# 查看最近一次提交的文件修改记录
+git log --name-status HEAD^..HEAD
+# 查看最近一次提交的详细记录（包括文件内容）
+git log -1
+git show ${commit_id}
 ```
 
 ### 4.5 提交/合并/撤销
 
 ```bash
+# 撤销本地的所有修改
+git checkout .
 # 撤销本地的最近一次提交
 # --soft 不删除改动代码，只撤销commit
 # --hard 删除改动代码，恢复到上一次的commit状态
