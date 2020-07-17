@@ -10,15 +10,15 @@ tags:
 ## 安装Samba
 
 ```bash
-[root@192 ~]# yum install samba samba-client samba-common
+$ yum install samba samba-client samba-common
 ```
 
 设置防火墙
 
 ```bash
-[root@192 ~]# firewall-cmd --permanent --zone=public --add-service=samba
+$ firewall-cmd --permanent --zone=public --add-service=samba
 success
-[root@192 ~]# firewall-cmd --reload
+$ firewall-cmd --reload
 success
 ```
 
@@ -52,7 +52,7 @@ C:\Users\Administrator.CDPC011>net config workstation
 安全起见，自定义配置前先备份原来的配置。
 
 ```bash
-[root@192 ~]# cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+$ cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
 ```
 
 ### 公共文件夹共享
@@ -60,21 +60,21 @@ C:\Users\Administrator.CDPC011>net config workstation
 先创建一个匿名用户共享的文件夹
 
 ```bash
-[root@192 home]# mkdir -p /home/data/samba/anonymous
-[root@192 home]# chmod -R 0777 /home/data/samba/anonymous/
-[root@192 home]# chown -R nobody:nobody /home/data/samba/anonymous
+$ mkdir -p /home/data/samba/anonymous
+$ chmod -R 0777 /home/data/samba/anonymous/
+$ chown -R nobody:nobody /home/data/samba/anonymous
 ```
 
 更改匿名共享文件夹的SELinux安全设置
 
 ```bash
-[root@192 home]# chcon -t samba_share_t /home/data/samba/anonymous
+$ chcon -t samba_share_t /home/data/samba/anonymous
 ```
 
 然后，更改Samba的配置
 
 ```bash
-[root@192 ~]# cat /etc/samba/smb.conf
+$ cat /etc/samba/smb.conf
 [global]
 	workgroup = WORKGROUP
 	security = user
@@ -92,12 +92,12 @@ C:\Users\Administrator.CDPC011>net config workstation
 启动服务且设置开机自启
 
 ```bash
-[root@192 system]# systemctl enable smb
+$ systemctl enable smb
 Created symlink from /etc/systemd/system/multi-user.target.wants/smb.service to /usr/lib/systemd/system/smb.service.
-[root@192 system]# systemctl enable nmb
+$ systemctl enable nmb
 Created symlink from /etc/systemd/system/multi-user.target.wants/nmb.service to /usr/lib/systemd/system/nmb.service.
-[root@192 system]# systemctl restart smb
-[root@192 system]# systemctl restart nmb
+$ systemctl restart smb
+$ systemctl restart nmb
 ```
 
 ### 私密文件夹共享
@@ -105,9 +105,9 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/nmb.service to 
 添加一个samba组，再添加用户到该组内
 
 ```bash
-[root@192 ~]# groupadd sambagroup
-[root@192 ~]# usermod leon -aG sambagroup
-[root@192 ~]# smbpasswd -a leon
+$ groupadd sambagroup
+$ usermod leon -aG sambagroup
+$ smbpasswd -a leon
 New SMB password:
 Retype new SMB password:
 Added user leon.
@@ -118,16 +118,16 @@ Added user leon.
 再创建一个私密文件夹，并设置权限
 
 ```bash
-[root@192 ~]# mkdir -p /home/data/samba/secure
-[root@192 ~]# chmod -R 0770 /home/data/samba/secure
-[root@192 ~]# chown -R root:sambagroup /home/data/samba/secure
-[root@192 ~]# chcon -t samba_share_t /home/data/samba/secure
+$ mkdir -p /home/data/samba/secure
+$ chmod -R 0770 /home/data/samba/secure
+$ chown -R root:sambagroup /home/data/samba/secure
+$ chcon -t samba_share_t /home/data/samba/secure
 ```
 
 然后再修改smb.conf
 
 ```bash
-[root@192 samba]# cat /etc/samba/smb.conf
+$ cat /etc/samba/smb.conf
 [global]
 	workgroup = WORKGROUP
 	security = user
@@ -152,11 +152,21 @@ Added user leon.
 再重启服务
 
 ```bash
-[root@192 ~]# systemctl restart smb
-[root@192 ~]# systemctl restart nmb
+$ systemctl restart smb
+$ systemctl restart nmb
 ```
 
-测试完毕，打完收工！
+## Windows端网络映射驱动器
+
+```bash
+$ net use X: \\119.127.112.220\Secure Password /user:leon
+```
+
+若出现`发生系统错误 1219。  不允许一个用户使用一个以上用户名与服务器或共享资源的多重连接。中断与此服务器或共享资源的所有连接，然后再试一次。`错误，用使用`net use /del`断开连接。使用`net use * /del /y`会断开所有连接。
+
+```bash
+$ net use X: /del /y
+```
 
 ## Reference
 
