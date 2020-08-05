@@ -60,7 +60,14 @@ export QT_INSTALL_DOCS=/opt/Qt5.6.3/Docs/Qt-5.6.3
 export TOPIKM6_DOC_SERVER_SSHPASS=xxx
 ```
 
+**CentOS 6安装sshpass**
+
+```bash
+$ yum --enablerepo=epel -y install sshpass
+```
+
 ## Reference
 
 - https://stackoverflow.com/questions/58094583/gitlab-pipeline-fails-when-using-rsync-to-upload-to-staging-server
 - https://codeburst.io/gitlab-build-and-push-to-a-server-via-ssh-6d27ca1bf7b4
+- https://stackoverflow.com/questions/38129835/sshpass-command-not-found-error

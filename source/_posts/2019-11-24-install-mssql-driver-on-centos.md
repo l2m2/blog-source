@@ -204,7 +204,7 @@ SQLRowCount returns 1
 1 rows fetched
 ```
 
-### `tsql`测试
+### 测试`tsql`
 
 `tsql`是FreeTDS的一个命令行测试工具。
 
@@ -275,6 +275,10 @@ int main(int argc, char *argv[])
     return a.exec();
 }
 ```
+
+## 可能出现的问题
+
+不同的驱动支持的数据库版本可能有差异。
 
 ## Reference
 
