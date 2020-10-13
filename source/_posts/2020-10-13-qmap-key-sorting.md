@@ -13,15 +13,15 @@ QMap是Qt应用程序开发中最常用的数据结构了，那么它是怎么�
 
 先看官方文档，
 
-The [QMap](qmap.html) class is a template class that provides a red-black-tree-based dictionary.
-
-[QMap](qmap.html)<Key, T> is one of Qt's generic [container classes](containers.html). It stores (key, value) pairs and provides fast lookup of the value associated with a key.
-
-[QMap](qmap.html) and [QHash](qhash.html#qhash) provide very similar functionality. The differences are:
-
-- [QHash](qhash.html#qhash) provides average faster lookups than [QMap](qmap.html). (See [Algorithmic Complexity](containers.html#algorithmic-complexity) for details.)
-- When iterating over a [QHash](qhash.html#qhash), the items are arbitrarily ordered. With [QMap](qmap.html), the items are always sorted by key.
-- The key type of a [QHash](qhash.html#qhash) must provide operator==() and a global [qHash](qhash.html#qhash)(Key) function. The key type of a [QMap](qmap.html) must provide operator<() specifying a total order.
+> The [QMap](qmap.html) class is a template class that provides a red-black-tree-based dictionary.
+>
+> [QMap](qmap.html)<Key, T> is one of Qt's generic [container classes](containers.html). It stores (key, value) pairs and provides fast lookup of the value associated with a key.
+>
+> [QMap](qmap.html) and [QHash](qhash.html#qhash) provide very similar functionality. The differences are:
+>
+> - [QHash](qhash.html#qhash) provides average faster lookups than [QMap](qmap.html). (See [Algorithmic Complexity](containers.html#algorithmic-complexity) for details.)
+> - When iterating over a [QHash](qhash.html#qhash), the items are arbitrarily ordered. With [QMap](qmap.html), the items are always sorted by key.
+> - The key type of a [QHash](qhash.html#qhash) must provide operator==() and a global [qHash](qhash.html#qhash)(Key) function. The key type of a [QMap](qmap.html) must provide operator<() specifying a total order.
 
 从上面的官方文档中我们得知，QMap是基于[红黑树](https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91)实现的，所以存储没有啥顺序可言。当我们迭代QMap时，是按照Key的顺序来的。
 
