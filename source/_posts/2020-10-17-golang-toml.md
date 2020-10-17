@@ -2,7 +2,7 @@
 title: Go操作TOML
 toc: false
 date: 2020-10-17 16:47:00
-description: 学习GO过程中的一些笔记，没啥可看的
+description: 学习GO过程中的一些笔记
 tags:
 - Go
 - TOML
