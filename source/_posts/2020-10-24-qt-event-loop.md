@@ -46,7 +46,7 @@ while (!interrupted) {
 }
 ```
 
-![](images/qt-event-loop-1.jpg)
+![](/images/qt-event-loop-1.jpg)
 
 Qt中对应的事件循环的类是`QEventLoop`.
 
@@ -93,7 +93,7 @@ void QCoreApplication::exit(int returnCode)
 
 ### 程序未响应？
 
-![](images/qt-event-loop-2.png)
+![](/images/qt-event-loop-2.png)
 
 程序在什么情况下会出现未响应的情况？
 
