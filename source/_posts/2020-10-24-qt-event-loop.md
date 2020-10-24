@@ -120,7 +120,7 @@ for (auto i : list) {
 
 ### 另起事件循环
 
-还有，我们另起一个事件循环来避免程序假死。我们通常在访问网络资源时这么做。
+还有，我们可以通过另起一个事件循环来避免程序假死。我们通常在访问网络资源时这么做。
 
 ```c++
 QNetworkReply *reply = manager->post(request, body);
