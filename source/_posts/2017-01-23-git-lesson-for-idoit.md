@@ -236,9 +236,16 @@ git commit --amend -m "New commit message"
 ### 4.6 submodule
 
 ```bash
+# 查看submodule
+git submodule
 # 添加submodule到party3/libdxfrw下
 git submodule add git@github.com:codelibs/libdxfrw.git party3/libdxfrw
 # 更新submodule
 git submodule update
+# 删除submodule
+git submodule deinit -f party3/libiconv
+git rm -f party3/libiconv
+git commit -m "removed submodule"
+rm -rf .git/modules/party3/libiconv/
 ```
 
