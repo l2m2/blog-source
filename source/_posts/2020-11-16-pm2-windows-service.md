@@ -32,7 +32,7 @@ $ pm2-service-install
 
 安装服务后，在服务列表中可以查看到此服务。
 
-![](images/pm2-windows-service-1.png)
+![](/images/pm2-windows-service-1.png)
 
 在执行`pm2 start`之后记得保存状态。
 
@@ -52,7 +52,7 @@ $ pm2-service-uninstall
 
    右键服务列表中的PM2, 查询到Windows服务启动的路径，进入该目录（例如：`C:\Users\toplinker\AppData\Roaming\npm\node_modules\pm2-windows-service\src\daemon`）。
 
-   ![](images/pm2-windows-service-2.png)
+   ![](/images/pm2-windows-service-2.png)
 
    在该目录下，有一个日志文件`pm2.err.log`，此文件详细记录了该windows服务启动失败的原因。可以根据原因逐步排查。
 
