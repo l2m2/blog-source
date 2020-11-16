@@ -1,4 +1,4 @@
-```
+---
 title: 安装PM2为Windows服务
 toc: false
 date: 2020-11-16 18:09:00
@@ -6,7 +6,7 @@ description: 安装PM2为windows服务实战记录。
 tags:
 - Node.js
 - PM2
-```
+---
 
 ## PM2
 
