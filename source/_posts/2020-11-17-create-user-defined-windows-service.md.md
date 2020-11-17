@@ -35,7 +35,9 @@ tags:
 
    其中toppdtserver是服务名称。
 
-3. 打开注册表并找到子项 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\toppdtserver`
+3. 打开注册表并找到子项 
+
+   `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\toppdtserver`
 
 4. 右键`toppdtserver`节点，新建项`Parameters`
 
