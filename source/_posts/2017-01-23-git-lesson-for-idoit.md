@@ -205,6 +205,8 @@ git remote prune origin
 git push origin develop
 # 关联远程分支并提交，这样每次不用指定远程的源和分支，只需git pull 或 git push
 git push -u origin develop
+# 强制提交
+git push -f
 ```
 
 ### 4.4 查看日志
@@ -229,6 +231,8 @@ git checkout .
 # --soft 不删除改动代码，只撤销commit
 # --hard 删除改动代码，恢复到上一次的commit状态
 git reset --soft HEAD^
+# reset到某次commit
+git reset --hard 80921b6cddb3f6465f50cadbef5bc33aeb0d48f
 # 修改最近一次提交的注释
 git commit --amend -m "New commit message"
 ```
@@ -247,5 +251,14 @@ git submodule deinit -f party3/libiconv
 git rm -f party3/libiconv
 git commit -m "removed submodule"
 rm -rf .git/modules/party3/libiconv/
+```
+
+## 5. 应用场景
+
+### 5.1 回滚到某次commit, 且不保留那次commit之后的修改
+
+```bash
+git reset --hard 80921b6cddb3f6465f50cadbef5bc33aeb0d48f
+git push -f
 ```
 
