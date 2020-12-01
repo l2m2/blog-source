@@ -34,7 +34,7 @@ print(curried(2)(3))
 
 偏函数是把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。
 
-`functools.partial`(*func*, */*, **args*, ***keywords*)
+`functools.partial`(*func*, */*, *args, **keywords)
 
 ```python
 from functools import partial
