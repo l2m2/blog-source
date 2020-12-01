@@ -1,11 +1,13 @@
 ---
-title: 排查SQL Server中的锁阻塞
-toc: false
+title: SQL Server中的阻塞与死锁
+toc: true
 date: 2020-11-24 10:59:00
 description: 记录排查过程
 tags:
 - MSSQL
 ---
+
+## 遇到的问题
 
 客户反馈在打开某模块时，界面一直停留在加载中。
 
@@ -86,6 +88,14 @@ WHERE InvoiveId = ...
 ![](/images/sqlserver-lock-checking-3.png)
 
 当`UPDATE`执行完成, UserA提交事务后，这个阻塞就不存在了。
+
+在实际业务中，我们遇到的情况要比这个复杂得多，远不止两个会话。如下图：
+
+![](/images/sqlserver-lock-checking-4.png)
+
+这上图的例子中，我们可以看到(59, 79, 145)这三个阻塞的会话。但145实际是被59阻塞的，所以一共有两个顶层阻塞会话(59, 79), 其他的会话我们称之为等待者。
+
+## 死锁
 
 
 
