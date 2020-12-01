@@ -97,6 +97,16 @@ WHERE InvoiveId = ...
 
 ## 死锁
 
+死锁和阻塞的原理相同，不同的是发生死锁时，没有可识别的顶部阻塞会话，会形成一个封闭的锁环。
+
+为了更好的理解，我们继续用刚才的发票的例子来说明。
+
+假设在修改Invoice表的行数据时，UserA还需要从InvoiceDetails表中获取向客户开票的总金额。假设由于我们尚未得知的原因，UserB已经在包含UserA需要读取的InvoiceDetails表行的页上获取了S Lock。如下图：
+
+![](/images/sqlserver-lock-checking-5.png)
+
+如上图所示，两个会话都在等待永远不会释放的锁。
+
 
 
 ## Reference
