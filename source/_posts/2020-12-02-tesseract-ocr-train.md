@@ -50,6 +50,22 @@ osd
 
 ## 训练
 
+自己在笔记本上手写数字和字母，然后再试试。
+
+```bash
+$ tesseract tesseract-ocr-2.jpg tesseract-ocr-2.output
+```
+
+我输入的图片是
+
+![](/images/tesseract-ocr-2.jpg)
+
+输出的结果 tesseract-ocr-2.output.txt中的文本（用记事本打开）是
+
+![](/images/tesseract-ocr-output-2.png)
+
+没识别，所以我们需要训练我手写的数字和字母库。
+
 
 
 ## Reference
