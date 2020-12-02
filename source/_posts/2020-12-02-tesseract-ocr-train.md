@@ -68,20 +68,20 @@ $ tesseract tesseract-ocr-2.jpg tesseract-ocr-2.output
 
 ###  jTessBoxEditor
 
-jTessBoxEditor是训练Tesseract的训练工具。[下载地址](http://vietocr.sourceforge.net/training.html)。我当前下载的版本是2.3.1。
+jTessBoxEditor是训练Tesseract的工具。[下载地址](http://vietocr.sourceforge.net/training.html)。我当前下载的版本是2.3.1。
 
 1. 在白纸上书写了所有数字和小写字母。如下图：
 
    ![](/images/tesseract-ocr-3.jpg)
 
-2. 使用[在线工具](https://cn.office-converter.com/tiff-converter)将jpg转换成tiff格式，重命名为`l2m2_hw.normal.exp0.tif`。
+2. 使用[在线工具](https://cn.office-converter.com/tiff-converter)将jpg转换成tiff格式，重命名为`l2m2hw.normal.exp0.tif`。
 
    tiff命名规则：`${lang}.${fontname}.exp${num}`
 
 3. 生成box文件
 
    ```bash
-   $ tesseract --psm 6 --oem 3 l2m2_hw.normal.exp0.tif l2m2_hw.normal.exp0 makebox
+   $ tesseract --psm 6 --oem 3 l2m2hw.normal.exp0.tif l2m2hw.normal.exp0 makebox
    Tesseract Open Source OCR Engine v5.0.0-alpha.20201127 with Leptonica
    Page 1
    ```
@@ -90,9 +90,112 @@ jTessBoxEditor是训练Tesseract的训练工具。[下载地址](http://vietocr.
 
    ![](/images/tesseract-ocr-4.png)
 
-5. 
+5. 在左侧修正字符后，保存
 
+6. 创建font_properties文件
 
+   ```bash
+   $ echo normal 0 0 0 0 0 > font_properties
+   ```
+   
+   语法：`<fontname> <italic> <bold> <fixed> <serif> <fraktur>`
+   
+7. 生成tr文件
+
+   ```bash
+   $ tesseract --psm 6 --oem 3 l2m2hw.normal.exp0.tif l2m2hw.normal.exp0
+    nobatch box.train
+   Tesseract Open Source OCR Engine v5.0.0-alpha.20201127 with Leptonica
+   Page 1
+   ```
+
+8. 生成unicharset文件
+
+   ```bash
+   $ unicharset_extractor l2m2hw.normal.exp0.box
+   Extracting unicharset from box file l2m2_hw.normal.exp0.box
+   Other case A of a is not in unicharset
+   Other case B of b is not in unicharset
+   Other case C of c is not in unicharset
+   Other case D of d is not in unicharset
+   Other case E of e is not in unicharset
+   Other case F of f is not in unicharset
+   Other case G of g is not in unicharset
+   Other case H of h is not in unicharset
+   Other case I of i is not in unicharset
+   Other case J of j is not in unicharset
+   Other case K of k is not in unicharset
+   Other case L of l is not in unicharset
+   Other case M of m is not in unicharset
+   Other case N of n is not in unicharset
+   Other case O of o is not in unicharset
+   Other case P of p is not in unicharset
+   Other case Q of q is not in unicharset
+   Other case R of r is not in unicharset
+   Other case S of s is not in unicharset
+   Other case T of t is not in unicharset
+   Other case V of v is not in unicharset
+   Other case W of w is not in unicharset
+   Other case U of u is not in unicharset
+   Other case X of x is not in unicharset
+   Other case Y of y is not in unicharset
+   Other case Z of z is not in unicharset
+   Wrote unicharset file unicharset
+   ```
+
+9. 生成聚集字符特征文件
+
+   ```bash
+   $ mftraining -F font_properties -U unicharset -O l2m2hw.normal.exp0.tr
+   
+   Read shape table shapetable of 0 shapes
+   Warning: no protos/configs for Joined in CreateIntTemplates()
+   Warning: no protos/configs for |Broken|0|1 in CreateIntTemplates()
+   Warning: no protos/configs for 1 in CreateIntTemplates()
+   Warning: no protos/configs for 2 in CreateIntTemplates()
+   Warning: no protos/configs for 3 in CreateIntTemplates()
+   Warning: no protos/configs for 4 in CreateIntTemplates()
+   Warning: no protos/configs for 5 in CreateIntTemplates()
+   Warning: no protos/configs for 6 in CreateIntTemplates()
+   Warning: no protos/configs for 7 in CreateIntTemplates()
+   Warning: no protos/configs for 9 in CreateIntTemplates()
+   Warning: no protos/configs for 0 in CreateIntTemplates()
+   Warning: no protos/configs for a in CreateIntTemplates()
+   Warning: no protos/configs for b in CreateIntTemplates()
+   Warning: no protos/configs for c in CreateIntTemplates()
+   Warning: no protos/configs for d in CreateIntTemplates()
+   Warning: no protos/configs for e in CreateIntTemplates()
+   Warning: no protos/configs for f in CreateIntTemplates()
+   Warning: no protos/configs for g in CreateIntTemplates()
+   Warning: no protos/configs for h in CreateIntTemplates()
+   Warning: no protos/configs for i in CreateIntTemplates()
+   Warning: no protos/configs for j in CreateIntTemplates()
+   Warning: no protos/configs for k in CreateIntTemplates()
+   Warning: no protos/configs for l in CreateIntTemplates()
+   Warning: no protos/configs for m in CreateIntTemplates()
+   Warning: no protos/configs for n in CreateIntTemplates()
+   Warning: no protos/configs for o in CreateIntTemplates()
+   Warning: no protos/configs for p in CreateIntTemplates()
+   Warning: no protos/configs for q in CreateIntTemplates()
+   Warning: no protos/configs for r in CreateIntTemplates()
+   Warning: no protos/configs for s in CreateIntTemplates()
+   Warning: no protos/configs for t in CreateIntTemplates()
+   Warning: no protos/configs for v in CreateIntTemplates()
+   Warning: no protos/configs for w in CreateIntTemplates()
+   Warning: no protos/configs for u in CreateIntTemplates()
+   Warning: no protos/configs for x in CreateIntTemplates()
+   Warning: no protos/configs for y in CreateIntTemplates()
+   Warning: no protos/configs for z in CreateIntTemplates()
+   Done!
+   ```
+
+10. 生成字符正常化特征文件
+
+    ```
+    
+    ```
+
+    
 
 ## Reference
 
