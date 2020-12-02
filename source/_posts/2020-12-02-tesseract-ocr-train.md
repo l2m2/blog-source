@@ -66,9 +66,38 @@ $ tesseract tesseract-ocr-2.jpg tesseract-ocr-2.output
 
 没识别，所以我们需要训练我手写的数字和字母库。
 
+###  jTessBoxEditor
+
+jTessBoxEditor是训练Tesseract的训练工具。[下载地址](http://vietocr.sourceforge.net/training.html)。我当前下载的版本是2.3.1。
+
+1. 在白纸上书写了所有数字和小写字母。如下图：
+
+   ![](/images/tesseract-ocr-3.jpg)
+
+2. 使用[在线工具](https://cn.office-converter.com/tiff-converter)将jpg转换成tiff格式，重命名为`l2m2_hw.normal.exp0.tif`。
+
+   tiff命名规则：`${lang}.${fontname}.exp${num}`
+
+3. 生成box文件
+
+   ```bash
+   $ tesseract --psm 6 --oem 3 l2m2_hw.normal.exp0.tif l2m2_hw.normal.exp0 makebox
+   Tesseract Open Source OCR Engine v5.0.0-alpha.20201127 with Leptonica
+   Page 1
+   ```
+
+4. 打开jTessBoxEditor, `Box Editor`->`Open`,  选择刚才生成的tif文件。
+
+   ![](/images/tesseract-ocr-4.png)
+
+5. 
+
 
 
 ## Reference
 
 - https://en.wikipedia.org/wiki/Optical_character_recognition
 - https://tesseract-ocr.github.io/tessdoc/
+- https://www.jianshu.com/p/3326c7216696
+- https://towardsdatascience.com/simple-ocr-with-tesseract-a4341e4564b6
+
