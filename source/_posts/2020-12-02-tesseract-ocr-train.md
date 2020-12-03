@@ -249,8 +249,6 @@ Estimating resolution as 147
     $ combine_tessdata l2m2hw.
     ```
 
-    
-
 ## Reference
 
 - https://en.wikipedia.org/wiki/Optical_character_recognition
