@@ -15,7 +15,7 @@ tags:
 
 ## 安装
 
-[下载地址](https://github.com/UB-Mannheim/tesseract/wiki)，我当前下载的版本是`tesseract-ocr-w64-setup-v4.1.0.20190314.exe`，按照步骤安装就行。我的安装路径是`E:\Tesseract-OCR`。
+[下载地址](https://github.com/UB-Mannheim/tesseract/wiki)，我当前下载的版本是`tesseract-ocr-w32-setup-v4.1.0.20190314.exe`，按照步骤安装就行。我的安装路径是`E:\Tesseract-OCR`。
 
 **用命令行工具测试一下**
 
