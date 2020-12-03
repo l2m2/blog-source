@@ -2,7 +2,7 @@
 title: Windows下tesseract-ocr的安装、使用、训练
 toc: false
 date: 2020-12-02 10:02:00
-description: Windows下安装tesseract-ocr, 训练
+description: ...
 tags:
 - OCR
 ---
