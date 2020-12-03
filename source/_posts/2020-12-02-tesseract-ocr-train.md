@@ -1,5 +1,5 @@
 ---
-title: tesseract-ocr训练
+title: Windows下tesseract-ocr的安装、使用、训练
 toc: false
 date: 2020-12-02 10:02:00
 description: Windows下安装tesseract-ocr, 训练
@@ -82,7 +82,7 @@ Estimating resolution as 147
 2. 生成box文件
 
    ```bash
-   $ tesseract --psm 7 --oem 3 l2m2hw.normal.exp0.tif l2m2hw.normal.exp0 makebox
+   $ tesseract --psm 6 --oem 3 l2m2hw.normal.exp0.tif l2m2hw.normal.exp0 makebox
    Tesseract Open Source OCR Engine v4.0.0.20190314 with Leptonica
    Page 1
    Warning: Invalid resolution 0 dpi. Using 70 instead.
@@ -127,7 +127,7 @@ Estimating resolution as 147
 5. 创建font_properties文件
 
    ```bash
-   $ echo normal 0 0 0 0 0 > font_properties
+   $ echo normal 0 0 0 0 0> font_properties
    ```
 
    语法：`<fontname> <italic> <bold> <fixed> <serif> <fraktur>`
@@ -161,49 +161,7 @@ Estimating resolution as 147
    Wrote unicharset file unicharset
    ```
 
-8. 生成字符特征文件 shapetable
-
-   ```bash
-   $ shapeclustering -F font_properties -U unicharset -O l2m2hw.unichaset l2m2hw.normal.exp0.tr
-   Reading l2m2hw.normal.exp0.tr ...
-   Building master shape table
-   Computing shape distances...
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances...
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances...
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances...
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances...
-   Stopped with 0 merged, min dist 999.000000
-   Computing shape distances... 0 1 2 3 4 5 6 7 8 9
-   Stopped with 0 merged, min dist 0.319728
-   Master shape_table:Number of shapes = 10 max unichars = 1 number with multiple unichars = 0
-   
-   ```
-
-9. 生成特征字符文件 pffmtable，intemp
+9. 生成特征字符文件
 
    ```bash
    $ mftraining -F font_properties -U unicharset -O l2m2hw.unichaset l2m2hw.normal.exp0.tr
@@ -233,24 +191,55 @@ Estimating resolution as 147
     l2m2hw.normal.exp0.box  l2m2hw.unichaset        shapetable
     ```
 
-11. 将4个字符特征文件重命名
+10. 重命名文件
 
     ```bash
     $ mv inttemp l2m2hw.inttemp
     $ mv normproto l2m2hw.normproto
     $ mv pffmtable l2m2hw.pffmtable
     $ mv shapetable l2m2hw.shapetable
+    $ mv unicharset l2m2hw.unicharset
     ```
 
 12. 合并训练文件
 
     ```bash
     $ combine_tessdata l2m2hw.
+    Combining tessdata files
+    Output l2m2hw.traineddata created successfully.
+    Version string:v4.0.0.20190314
+    1:unicharset:size=721, offset=192
+    3:inttemp:size=134520, offset=913
+    4:pffmtable:size=110, offset=135433
+    5:normproto:size=1382, offset=135543
+    13:shapetable:size=184, offset=136925
+    23:version:size=15, offset=137109
     ```
+    
+12. 测试l2m2hw训练库
+
+    拷贝训练库到安装目录的tessdata下
+
+    ```bash
+    $ cp l2m2hw.traineddata /e/Tesseract-OCR/tessdata/
+    ```
+
+    再次识别
+
+    ```bash
+    $ tesseract tesseract-ocr-2.png stdout -l l2m2hw
+    10293847 565647382910
+    
+    Warning: Invalid resolution 0 dpi. Using 70 instead.
+    Estimating resolution as 147
+    ```
+
+    正确啦！
 
 ## Reference
 
 - https://en.wikipedia.org/wiki/Optical_character_recognition
 - https://tesseract-ocr.github.io/tessdoc/
 - https://towardsdatascience.com/simple-ocr-with-tesseract-a4341e4564b6
+- https://www.jianshu.com/p/3326c7216696
 
