@@ -71,12 +71,11 @@ $ tesseract tesseract-ocr-2.png stdout
 
 Warning: Invalid resolution 0 dpi. Using 70 instead.
 Estimating resolution as 147
-
 ```
 
 识别的结果显然不是我们想要的，接下来我们对它进行训练。
 
-2. 使用[在线工具](https://cn.office-converter.com/tiff-converter)将jpg转换成tiff格式，重命名为`l2m2hw.normal.exp0.tif`。
+1. 使用[在线工具](https://cn.office-converter.com/tiff-converter)将jpg转换成tiff格式，重命名为`l2m2hw.normal.exp0.tif`。
 
    tiff命名规则：`${lang}.${fontname}.exp${num}`
 
