@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL中的继承
+title: PostgreSQL - 继承
 toc: false
 date: 2020-12-08 13:28:00
 description: 通常我们不会在数据库设计时使用继承，本文只是了解下。

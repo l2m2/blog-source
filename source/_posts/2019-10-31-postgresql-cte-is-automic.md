@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL中CTE的原子性
+title: PostgreSQL - CTE的原子性
 toc: false
 date: 2019-10-31 15:53:31
 description: 你可能不知道的SQL

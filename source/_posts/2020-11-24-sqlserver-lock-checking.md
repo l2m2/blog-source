@@ -51,11 +51,42 @@ WHERE
 
 ![](/images/sqlserver-lock-checking-1.png)
 
-可以看到，Session 77 请求的是IX锁定，即意向排他锁。其余会话请求的是S锁定，即共享锁。
+可以看到，会话69和会话73形成了死锁。
+
+会话69执行的SQL是
+
+```sql
+SELECT * FROM (
+    SELECT ROW_NUMBER() OVER (ORDER BY "titration_volume" ASC ,"plan_time" ASC ) AS row__number, "id","group_id","workcenter_id","line_id","bath_id","control_item","control_grade","spec_unit","frequency","spec_lower_limit","spec_control_point","spec_upper_limit","solution_name","lab_concentration","analysis_type","analysis_value","stopping","titration_volume","4_distribution","analysis_operator","sample_time","analysis_time","formula_method","time_value","time_unit","obsolete","weight","plan_time","stop_reason","review_volume","review_weight","review_result","review_operator","review_time","handle_time","wx_send_info","create_time" 
+    FROM "utclabm_daily_job"  
+    WHERE  (  ( "group_id" LIKE '%化金%' OR "workcenter_id" LIKE '%化金%' OR "line_id" LIKE '%化金%' OR "bath_id" LIKE '%化金%' OR "control_item" LIKE '%化金%' OR "spec_unit" LIKE '%化金%' OR "solution_name" LIKE '%化金%' OR "review_operator" LIKE '%化金%' )  AND  (  (  (  (  ( "plan_time" >= '2020-12-17 08:00:00' )  AND  ( "plan_time" <= '2020-12-17 19:59:59' )  )  )  OR  (  (  (  (  ( "4_distribution" LIKE '%D%' OR "4_distribution" LIKE '%C%' )  AND "review_result" IS  NULL  )  )  OR  ( "analysis_value" IS  NULL  )  )  )  )  )  ) 
+) AS ROWNUM__ALIAS__TABLE WHERE  ROWNUM__ALIAS__TABLE.row__number < 101
+```
+
+会话73执行的SQL是
+
+```sql
+(@P1 nvarchar(18),@P2 nvarchar(4),@P3 nvarchar(2),@P4 nvarchar(8),@P5 nvarchar(4),@P6 nvarchar(4),@P7 nvarchar(10),@P8 nvarchar(4000),@P9 nvarchar(4000),@P10 nvarchar(4000),@P11 nvarchar(4000),@P12 nvarchar(4),@P13 nvarchar(4000),@P14 nvarchar(4000),@P15 nvarchar(4000),@P16 nvarchar(4000),@P17 nvarchar(4000),@P18 ntext)
+UPDATE "utclabm_daily_job" 
+SET "analysis_type"=@P1,"analysis_value"=@P2,"stopping"=@P3,"stop_reason"=@P4,"titration_volume"=@P5,"4_distribution"=@P6,"analysis_operator"=@P7,"sample_time"=@P8,"analysis_time"=@P9,"formula_method"=@P10,"obsolete"=@P11,"weight"=@P12,"review_volume"=@P13,"review_weight"=@P14,"review_result"=@P15,"review_operator"=@P16,"review_time"=@P17,"log"=@P18 
+WHERE  (  ( "id" = '496126' )  ) 
+```
+
+也可以直接查询[sysprocesses](https://docs.microsoft.com/en-us/sql/relational-databases/system-compatibility-views/sys-sysprocesses-transact-sql?view=sql-server-ver15)表查看这两个会话的详细信息。
+
+```sql
+select cmd, spid, blocked, login_time, last_batch, hostname, lastwaittype
+from sys.sysprocesses
+where blocked > 0 and spid in (69, 73)
+--SELECT          	69	73	2020-12-17 00:23:50.367	2020-12-17 02:16:27.247	PC-A-D430-N084                                                                                                                  	LCK_M_S                         
+--UPDATE          	73	69	2020-12-16 11:57:39.683	2020-12-17 02:16:27.790	SERVER02-PC                                                                                                                     	LCK_M_IX                        
+```
 
 下图是各种锁模式的[兼容性](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms186396(v=sql.105)?redirectedfrom=MSDN)。
 
 ![](/images/sqlserver-lock-checking-2.png)
+
+
 
 那什么是阻塞？什么又是死锁呢？
 
