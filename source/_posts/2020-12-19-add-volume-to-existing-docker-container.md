@@ -1,5 +1,5 @@
 ---
-title: 为正在运行的Docker容器添加Volume
+title: 为正在运行的PostgreSQL容器添加Volume
 toc: false
 date: 2020-12-19 15:41:00
 description: ...
@@ -56,15 +56,23 @@ $ docker container rm pg10
 $ docker rename pg10_new pg10
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-c38477f25557        postgres:10         "docker-entrypoint..."   2 minutes ago       Up 2 minutes        0.0.0.0:5432->5432/tcp   pg10
+1aed68374cf3        postgres:10         "docker-entrypoint..."   2 minutes ago       Up 2 minutes        0.0.0.0:5432->5432/tcp   pg10
 ```
 
-~~**方案二**：基于当前的容器生成新的镜像，基于新的镜像重新run一个容器。~~ 
+**方案二**：基于当前的容器生成新的镜像，基于新的镜像重新run一个容器。
 
-此方案不适用于PostgreSQL的/var/lib/postgresql/data的挂载。
+由于PostgreSQL的官方Dockerfile都有VOLUME，导致commit时没有包含PGDATA。
 
 ```bash
-$ docker commit ec072f8d5031 pg10_new
+$ docker exec -it pg10 bash
+root@1aed68374cf3:/# cd /var/lib/postgresql/
+root@1aed68374cf3:/var/lib/postgresql# cp -r data/ data2/
+```
+
+接下来就创建新的镜像。
+
+```bash
+$ docker commit 1aed68374cf3 pg10_new
 sha256:457d9fde9e6d496ab0a919dd88536d66f49d784ff02509a66d7caf87fc66bf58
 $ docker image ls
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
@@ -72,10 +80,18 @@ pg10_new                      latest              457d9fde9e6d        16 seconds
 docker.io/postgres            10                  8b85cd6eeb37        7 days ago          200 MB
 $ docker container stop pg10
 $ docker run --name pg10_new -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d \
+-e PGDATA=/var/lib/postgresql/data2 \
 -v /home/data/docker_data/pgdata/:/var/lib/postgresql/data pg10_new
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 ebfc992bde14        pg10_new            "docker-entrypoint..."   3 seconds ago       Up 2 seconds        0.0.0.0:5432->5432/tcp   pg10_new
+```
+
+确认无误后，删除之前的容器，再重命名新容器为原来的名称。
+
+```bash
+$ docker container rm pg10
+$ docker rename pg10_new pg10
 ```
 
 ## Reference
