@@ -61,7 +61,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 **方案二**：基于当前的容器生成新的镜像，基于新的镜像重新run一个容器。
 
-由于PostgreSQL的官方Dockerfile都有VOLUME，导致commit时没有包含PGDATA。
+由于PostgreSQL的官方Dockerfile都有Volume，导致commit时没有包含PGDATA。
+
+变通的方法是先复制一个data2, 创建容器时再指定PGDATA。
 
 ```bash
 $ docker exec -it pg10 bash
