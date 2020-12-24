@@ -239,6 +239,11 @@ git reset --soft HEAD^
 git reset --hard 80921b6cddb3f6465f50cadbef5bc33aeb0d48f
 # 修改最近一次提交的注释
 git commit --amend -m "New commit message"
+# 合并，不带br1的commit历史，把不必要的commit进行压缩
+git merge --squash br1
+git commit -m "new commit log"
+# 合并，关闭fast-forward模式，在提交的时候，会创建一个merge的commit信息
+git merge --no-ff br1
 ```
 
 ### 4.6 submodule
