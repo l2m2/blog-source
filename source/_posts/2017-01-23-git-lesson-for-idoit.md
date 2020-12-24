@@ -182,6 +182,10 @@ git checkout -b br1
 git branch -d br1
 # 删除远程分支
 git push origin :br1
+# 比较两个分支的差异
+git diff br1..br2
+# 比较当前分支与br2分支
+git diff ..br2
 ```
 
 ### 4.3 远程仓库
