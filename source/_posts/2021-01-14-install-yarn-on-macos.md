@@ -35,6 +35,8 @@ $ xcode-select --install
 ```bash
 $ yarn global add @vue/cli
 $ yarn global upgrade --latest @vue/cli
+$ yarn run build
+$ yarn run serve
 ```
 
 ## Reference
