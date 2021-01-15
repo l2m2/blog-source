@@ -16,7 +16,6 @@ tags:
 2. 编写单文件example.vue
 
    ```vue
-   
    <template>
        <div id="app">
            {{ message }}
@@ -37,7 +36,7 @@ tags:
        }
    </style>
    ```
-
+   
 3. 跑起来
 
    ```bash
