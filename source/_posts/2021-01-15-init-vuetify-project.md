@@ -34,8 +34,8 @@ Vue CLI v4.5.10
  ◉ Babel
  ◯ TypeScript
  ◉ Progressive Web App (PWA) Support
- ◯ Router
- ◯ Vuex
+ ◉ Router
+ ◉ Vuex
  ◉ CSS Pre-processors
  ◉ Linter / Formatter
 ❯◉ Unit Testing
@@ -48,6 +48,7 @@ Vue CLI v4.5.10
 ? Choose a version of Vue.js that you want to start the project with (Use arrow keys)
 ❯ 2.x 
   3.x (Preview) 
+? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n) y
 ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): 
   Sass/SCSS (with dart-sass) 
 ❯ Sass/SCSS (with node-sass) 
