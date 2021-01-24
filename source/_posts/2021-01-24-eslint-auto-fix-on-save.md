@@ -20,7 +20,7 @@ tags:
 
    ```json
    {
-     	"editor.codeActionsOnSave": {
+       "editor.codeActionsOnSave": {
            "source.fixAll.eslint": true
        },
        "eslint.workingDirectories": [
@@ -37,7 +37,7 @@ tags:
 
    ```json
    {
-     	"recommendations": [
+       "recommendations": [
          	"dbaeumer.vscode-eslint"
        ]
    }
