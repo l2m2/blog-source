@@ -46,3 +46,20 @@ tags:
    这样，新加入团队的成员可以得到推荐插件的提示，以方便的添加需要的插件。
 
    ![](/images/eslint-autofix-on-save-1.png)
+
+3. 使用ESLint + Prettier的组合
+
+   若使用脚手架创建项目时没有选择Prettier，可以单独添加。
+
+   ```bash
+   $ yarn add --dev prettier @vue/eslint-config-prettier eslint-plugin-prettier
+   ```
+
+   修改.eslintrc.js
+
+   ```js
+   extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"]
+   ```
+
+   
+

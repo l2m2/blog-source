@@ -57,17 +57,24 @@ Vue CLI v4.5.10
 ? Pick a linter / formatter config: 
   ESLint with error prevention only 
   ESLint + Airbnb config 
-❯ ESLint + Standard config 
-  ESLint + Prettier 
-? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)
-❯◉ Lint on save
- ◯ Lint and fix on commit
+  ESLint + Standard config 
+❯ ESLint + Prettier 
+? Pick additional lint features: 
+ ◉ Lint on save
+❯◉ Lint and fix on commit
 ? Pick a unit testing solution: 
   Mocha + Chai 
 ❯ Jest 
 ? Where do you prefer placing config for Babel, ESLint, etc.? (Use arrow keys)
 ❯ In dedicated config files 
   In package.json 
+```
+
+保存配置下次可以用(默认保存在~/.vuerc中)
+
+```
+Save this as a preset for future projects? (y/N) y
+? Save preset as: l2m2.preset
 ```
 
 进入创建的目录下，添加Vuetify
