@@ -45,12 +45,12 @@ export default new Vuex.Store({
 
 ```json
 {
-	"global": {
-		"lang": "en"
-	},
-	"user": {
-		"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTI5MTQzMzMsInN1YiI6IjEifQ.PzJ8liBrJ58ow0x-0AppqlJGJ1v_0KGngglLAGaWxF4"
-	}
+  "global": {
+    "lang": "en"
+  },
+  "user": {
+    "token": "eyJhbGci"
+  }
 }
 ```
 
