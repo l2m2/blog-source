@@ -13,7 +13,9 @@ tags:
 我们期待的用法大概长这样
 
 ```js
-this.$q.showMessage(...)
+this.$q.error("")
+this.$q.warning("")
+this.$q.info("")
 ```
 
 ## Store
@@ -72,6 +74,27 @@ const snackbarPlugin = {
           { content, color },
           { root: true }
         );
+      },
+      error: function(content) {
+        store.commit(
+          "snackbar/showMessage",
+          { content, color: "error" },
+          { root: true }
+        );
+      },
+      warning: function(content) {
+        store.commit(
+          "snackbar/showMessage",
+          { content, color: "warning" },
+          { root: true }
+        );
+      },
+      info: function(content) {
+        store.commit(
+          "snackbar/showMessage",
+          { content, color: "info" },
+          { root: true }
+        );
       }
     };
   }
@@ -96,12 +119,17 @@ Vue.use(snackbarPlugin, { store });
 
 ```vue
 <template>
-  <v-snackbar v-model="show" :color="color">
-    {{ message }}
-    <v-btn text @click="show = false">Close</v-btn>
-  </v-snackbar>
+  <v-app>
+    <v-snackbar v-model="show" :color="color" top text timeout="2000">
+      {{ message }}
+      <template v-slot:action="{ attrs }">
+        <v-btn text v-bind="attrs" @click="show = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+  </v-app>
 </template>
-<script>
 export default {
   data() {
     return {
@@ -152,7 +180,9 @@ export default {
 可以在任意页面中使用啦。
 
 ```js
-this.$q.showMessage({content: "xxx", color: "info"})
+this.$q.info("xxx")
+this.$q.warning("xxx")
+this.$q.error("xxx")
 ```
 
 在axios的response钩子中提示错误：
@@ -172,10 +202,7 @@ service.interceptors.response.use(
     return res;
   },
   async error => {
-    context.$q.showMessage({
-      content: error.response.data.detail,
-      color: "error"
-    });
+    context.$q.error(error.response.data.detail);
     return Promise.reject(error);
   }
 );
