@@ -1,5 +1,5 @@
 ---
-title: 给Vue项目中添加全屏支持
+title: 给Vue项目添加全屏支持
 toc: false
 date: 2021-02-02 09:11:00
 description: 使用screenfull.js
