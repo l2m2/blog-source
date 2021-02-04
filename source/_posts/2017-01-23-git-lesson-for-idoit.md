@@ -231,6 +231,8 @@ git show ${commit_id}
 ```bash
 # 撤销本地的所有修改
 git checkout .
+# 撤销本地某个文件的修改
+git checkout -- book.cpp
 # 撤销本地的最近一次提交
 # --soft 不删除改动代码，只撤销commit
 # --hard 删除改动代码，恢复到上一次的commit状态
