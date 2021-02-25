@@ -1,7 +1,7 @@
 ---
 title: 给Vue项目添加全局的确认对话框
 toc: false
-date: 2021-01-28 22:38:00
+date: 2021-02-25 16:38:00
 description: Vue / Vuetify / Confirm
 tags:
 - Vue
