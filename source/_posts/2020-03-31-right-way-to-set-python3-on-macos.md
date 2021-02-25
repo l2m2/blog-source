@@ -140,8 +140,23 @@ $ rmvirtualenv testenv2
 
 用你的项目名称作为虚拟环境的名称。
 
+为了简化命令，我们在`~/.bashrc`中创建三个函数。
+
 ```bash
-$ mkvirtualenv $(basename $(pwd))
+mkv() {
+  mkvirtualenv $(basename $(pwd))
+}
+ev() {
+  deactivate
+}
+rv() {
+  rmvirtualenv $(basename $(pwd))
+}
+```
+然后进入项目所在目录执行mkv，便会创建以此项目为名的虚拟环境
+```bash
+$ cd django-demo1
+$ mkv
 created virtual environment CPython3.7.5.final.0-64 in 293ms
   creator CPython3Posix(dest=/Users/l2m2/.virtualenvs/django-demo1, clear=False, global=False)
   seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=/Users/l2m2/Library/Application Support/virtualenv/seed-app-data/v1.0.1)
@@ -153,7 +168,7 @@ virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/django-demo1/bi
 virtualenvwrapper.user_scripts creating /Users/l2m2/.virtualenvs/django-demo1/bin/get_env_details
 (django-demo1) $ workon
 django-demo1
-(django-demo1) $ deactivate
+(django-demo1) $ ev
 ```
 
 这样下次你进入项目启用虚拟环境。只需要：
@@ -168,7 +183,7 @@ $ workon .
 
 ```bash
 $ cd django-demo1/
-$ rmvirtualenv $(basename $(pwd))
+$ rv
 ```
 
 ## Reference
