@@ -8,6 +8,6 @@ date: 2019-10-10 13:56:00
 - Name: 李黎明 / Leon
 - Email: l2m2lq@gmail.com
 - [Github](https://github.com/l2m2)
-- [Twitter](https://twitter.com/l2m2_leon)
-- [Facebook](https://www.facebook.com/leonl2m2)
+- [Twitter](https://twitter.com/l2m2lq)
 - [LeetCode](https://leetcode.com/l2m2lq/)
+
