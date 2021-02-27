@@ -45,7 +45,7 @@ $ pip install -U yapf
 
 ## 配置yapf
 
-通常，我们会在项目中添加一个yapf的自定义配置文件`.style.yapf`来进行style定制。
+在项目的根目录中添加一个yapf的自定义配置文件`.style.yapf`来进行style定制。
 
 `.style.yapf`
 
