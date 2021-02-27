@@ -47,8 +47,14 @@ exclude = .git,__pycache__,__init__.py,.mypy_cache,.pytest_cache
 ignore =
   # E111: indentation is not a multiple of four
   E111,
+  # E114: indentation is not a multiple of four (comment)
+  E114,
   # E121: continuation line under-indented for hanging indent
-  E121
+  E121,
+per-file-ignores = 
+  # imported but unused
+  base.py: F401
+  __init__.py: F401
 ```
 
 ignore是指需要忽略的PEP8规则。在我的项目中，缩进是两个空格，因此忽略了E111和E121。
