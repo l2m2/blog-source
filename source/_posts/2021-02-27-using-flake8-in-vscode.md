@@ -1,5 +1,5 @@
 ---
-title: VS Code中使用对Python进行静态代码检查
+title: VS Code中使用flake8对Python进行静态代码检查
 toc: false
 date: 2021-02-27 16:51:00
 description: ...
