@@ -1,5 +1,5 @@
 ---
-title: VS Code中使用yapf对代码进行格式化
+title: VS Code中使用yapf对Python代码进行格式化
 toc: false
 date: 2021-02-27 15:51:00
 description: ...
