@@ -61,6 +61,16 @@ ignore是指需要忽略的PEP8规则。在我的项目中，缩进是两个空�
 
 所有的错误代码可以在[这里](https://pep8.readthedocs.io/en/release-1.7.x/intro.html#error-codes)找到。
 
+配置文件的详细说明：
+
+```
+Flake8 supports storing its configuration in the following places:
+
+Your top-level user directory
+In your project in one of setup.cfg, tox.ini, or .flake8.
+```
+
 ## Reference
 
 - https://flake8.pycqa.org/
+

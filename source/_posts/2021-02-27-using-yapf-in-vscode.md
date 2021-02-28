@@ -58,6 +58,16 @@ CONTINUATION_INDENT_WIDTH = 2
 
 更多参数可以在[这里](https://github.com/google/yapf/blob/main/yapf/yapflib/style.py#L445)查阅。
 
+配置文件用法的详细说明：
+
+```
+YAPF will search for the formatting style in the following manner:
+Specified on the command line
+In the [style] section of a .style.yapf file in either the current directory or one of its parent directories.
+In the [yapf] section of a setup.cfg file in either the current directory or one of its parent directories.
+In the [style] section of a ~/.config/yapf/style file in your home directory.
+```
+
 ## Reference
 
 - https://github.com/google/yapf
