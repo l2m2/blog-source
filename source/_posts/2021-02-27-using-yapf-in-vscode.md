@@ -54,6 +54,7 @@ $ pip install -U yapf
 based_on_style = pep8
 INDENT_WIDTH = 2
 CONTINUATION_INDENT_WIDTH = 2
+COLUMN_LIMIT = 120
 ```
 
 更多参数可以在[这里](https://github.com/google/yapf/blob/main/yapf/yapflib/style.py#L445)查阅。
