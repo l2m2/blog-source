@@ -29,6 +29,13 @@ $ rpm -ivh docker-ce-19.03.11-3.el7.x86_64.rpm
 
 安装过程中可能会缺少其他rpm包，再去下载对应的离线rpm包安装即可。
 
+安装完成后启动docker。
+
+```bash
+$ systemctl start docker
+$ systemctl enable docker
+```
+
 ## 离线安装docker镜像
 
 以安装mssql为例：
