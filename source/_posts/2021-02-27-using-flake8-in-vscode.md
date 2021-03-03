@@ -70,6 +70,12 @@ Your top-level user directory
 In your project in one of setup.cfg, tox.ini, or .flake8.
 ```
 
+我们可以在per-file-ignores中配置需要忽略的错误，也可以直接在源码中通过注释忽略。
+
+```python
+from app.db import base  # noqa: F401
+```
+
 ## Reference
 
 - https://flake8.pycqa.org/
