@@ -6,6 +6,7 @@ description: ...
 tags:
 - Python
 - ORM
+- SQLAlchemy
 ---
 
 ## ORM
