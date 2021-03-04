@@ -1,5 +1,5 @@
 ---
-title: 离线安装Docker镜像
+title: 离线安装Docker及镜像
 toc: false
 date: 2020-01-09 08:44:43
 description: Docker傻逼日记
