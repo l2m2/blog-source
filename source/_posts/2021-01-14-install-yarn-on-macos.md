@@ -38,6 +38,7 @@ $ yarn global upgrade --latest @vue/cli
 $ yarn run build
 $ yarn run serve
 $ yarn add eslint-plugin-html --dev
+$ yarn remove @vue/cli-plugin-pwa --dev
 ```
 
 ## Reference
