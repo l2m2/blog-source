@@ -1,5 +1,5 @@
 ---
-title: VS Code保存时自动修复ESLint错误
+title: 使用ESLint+Prettier来工程化你的Vue代码
 toc: false
 date: 2021-01-24 16:36:00
 description: ...
@@ -7,6 +7,10 @@ tags:
 - VS Code
 - Vue
 ---
+
+## ESLint
+
+ESLint是**静态代码检查工具**。
 
 一般地，我们在使用Vue脚手架创建Vue前端工程时都会启动ESLint静态代码检查。
 
@@ -29,7 +33,11 @@ tags:
    }
    ```
 
-**团队开发最佳实践**
+## Prettier
+
+Prettier是**代码格式化工具。**
+
+## 最佳实践：ESLint+Prettier
 
 1. 将.vscode从你的.gitignore中去除，以保存每个成员都使用同样的配置
 
@@ -47,7 +55,7 @@ tags:
 
    ![](/images/eslint-autofix-on-save-1.png)
 
-3. 使用ESLint + Prettier的组合
+3. **使用ESLint + Prettier的组合**
 
    若使用脚手架创建项目时没有选择Prettier，可以单独添加。
 
@@ -61,5 +69,32 @@ tags:
    extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"]
    ```
 
-   
+3. 一个定制ESLint和Prettier的规则示例
 
+   `.eslintrc.js`
+
+   ```js
+   module.exports = {
+     root: true,
+     env: {
+       node: true
+     },
+     extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
+     parserOptions: {
+       parser: "babel-eslint"
+     },
+     rules: {
+       "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+       "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+       "max-len": ["error", { "code": 140 }],
+       "prettier/prettier": [ "error", { printWidth: 140} ]
+     }
+   };
+   ```
+
+
+## Reference
+
+- https://eslint.org/docs/rules/
+
+- https://github.com/prettier/eslint-plugin-prettier
