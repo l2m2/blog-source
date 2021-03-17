@@ -57,6 +57,13 @@ tags:
 
 8. 大功告成！
 
+## 常见问题
+
+1. 启动服务时出现1053错误
+
+   打开注册表编辑器，导航到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\`, 在右侧界面中新增一个值：ServicesPipeTimeout, 值设置为60000.
+
 ## Reference
 
 - https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/create-user-defined-service
+- https://appuals.com/how-to-fix-error-1053-the-service-did-not-respond-to-the-start-or-control-request-in-a-timely-fashion/
