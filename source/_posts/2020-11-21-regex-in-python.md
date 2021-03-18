@@ -108,6 +108,15 @@ print(re.subn(r'\s+', '', 'abc de f  g'))
 # ('abcdefg', 3)
 ```
 
+一个稍微复杂一点的例子，将`/users/{a1}/code/{b1}/ff`字符串中大括号包裹的部分替换为大括号中的内容再加一个后缀suffix
+
+```python
+re.sub(r'\{(.*?)\}', r'\1suffix', r'/users/{a1}/code/{b1}/ff')
+# /users/a1suffix/code/b1suffix/ff
+```
+
+
+
 ## re.search()
 
 `re.search(pattern, string, flags=0)`
