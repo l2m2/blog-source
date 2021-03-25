@@ -7,30 +7,27 @@ tags:
 - PostgreSQL
 ---
 
-在我的实际场景中，有两张表，一张用户表user。
+在我的实际场景中，有两张表，一张用户表sys_user。
 
-```
-id	username
-1		leon
-2		dirty
-```
+| id   | username |
+| ---- | -------- |
+| 1    | Leon     |
+| 2    | Dirty    |
 
 还有一张用户与角色的关系表user_role_rel。
 
-```
-user_id		role_id
-1					2
-1					4
-2					3
-```
+| user_id | role_id |
+| ------- | ------- |
+| 1       | 2       |
+| 1       | 4       |
+| 2       | 3       |
 
 现在需要查询出用户信息，信息中包含角色的id列表。大概长这样。
 
-```
-id		username		roles
-1			leon				{2,4}
-2			dirty				{3}
-```
+| id   | username | roles |
+| ---- | -------- | ----- |
+| 1    | Leon     | {2,4} |
+| 2    | Dirty    | {3}   |
 
 普通的方式，我们可以先连接再聚合。
 
