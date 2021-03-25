@@ -5,6 +5,8 @@ date: 2021-03-25 14:42:00
 description: ...
 tags:
 - PostgreSQL
+- Python
+- ORM
 ---
 
 在我的实际场景中，有两张表，一张用户表sys_user。
@@ -57,9 +59,9 @@ LATERAL允许引用前面的FROM项提供的列。
 用`SQLAlchemy ORM`来写，就像是这样：
 
 ```python
-subq = db.query(func.array_agg(UserRoleRel.role_id).label("roles")).filter(User.id == UserRoleRel.user_id).subquery().lateral()
+subq = session.query(func.array_agg(UserRoleRel.role_id).label("roles")).filter(User.id == UserRoleRel.user_id).subquery().lateral()
 
-db.query(*[c for c in User.__table__.c],subq).join(subq, true(), isouter=True).filter(text(filter)).order_by(text(order)).offset(skip).limit(limit).all()
+session.query(*[c for c in User.__table__.c],subq).join(subq, true(), isouter=True).filter(text(filter)).order_by(text(order)).offset(skip).limit(limit).all()
 ```
 
 ## Reference
