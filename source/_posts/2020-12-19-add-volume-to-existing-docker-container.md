@@ -5,7 +5,7 @@ date: 2020-12-19 15:41:00
 description: ...
 tags:
 - Docker
-- PosetgreSQL
+- PostgreSQL
 ---
 
 之前为客户安装PostgreSQL时忘记挂载Volume了，现在数据库越来越大，需要给正在运行的容器挂载Volume。
