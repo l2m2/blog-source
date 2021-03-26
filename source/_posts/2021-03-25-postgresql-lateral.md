@@ -2,7 +2,7 @@
 title: PostgreSQL中的LATERAL查询
 toc: false
 date: 2021-03-25 14:42:00
-description: ...
+description: 以及在SQLAlchemy ORM中如何书写
 tags:
 - PostgreSQL
 - Python
