@@ -68,3 +68,4 @@ session.query(*[c for c in User.__table__.c],subq).join(subq, true(), isouter=Tr
 
 - http://www.postgres.cn/docs/10/queries-table-expressions.html#QUERIES-FROM
 - https://stackoverflow.com/questions/58267279/postgresql-left-join-query-object-array-aggregate
+
