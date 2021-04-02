@@ -58,9 +58,17 @@ tags:
    ```js
    import "./plugins/iconfont";
    ```
+
+
+9. 在模版中使用
+  
+   ```vue
+   <icon-font type="icon-i18n"/>
+   ```
    
 
-9. 若添加或更新了图标，需再次生成代码，替换scriptUrl即可。
+
+10. 若添加或更新了图标，需再次生成代码，替换scriptUrl即可。
 
 ## 其他
 
