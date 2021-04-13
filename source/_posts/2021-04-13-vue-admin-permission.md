@@ -379,6 +379,8 @@ created() {
 - 操作权限控制：使用指令。
 - 动态导航菜单：通过动态路由生成。
 
+完整的实现在[这里](https://github.com/l2m2/fastapi-vue-admin)。
+
 ## Reference
 
 - https://pro.antdv.com/docs/authority-management
