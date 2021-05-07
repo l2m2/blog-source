@@ -50,5 +50,7 @@ tags:
 
     ![](/images/qt-call-sap-error-1.png)
 
+    这就解释了为什么在Windows下用TopJS3执行是对的。因为客户Windows环境的系统语言是中文。而客户Linux环境的系统语言是英文。
+    
     
 
