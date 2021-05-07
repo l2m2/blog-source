@@ -46,3 +46,9 @@ tags:
 
 16. **破案**，TopJS3多了一个头 `Accept-Language: en-US, *`。手动添加一个头`Accept-Language: zh-CN`后拿到了正确的结果。
 
+    查看了Qt关于该部分的源码，确实加了Accept-Language。
+
+    ![](/images/qt-call-sap-error-1.png)
+
+    
+
