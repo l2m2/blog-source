@@ -1,5 +1,5 @@
 ---
-title: 为正在运行的PostgreSQL容器添加Volume
+title: 为正在运行的PostgreSQL容器Bind mount
 toc: false
 date: 2020-12-19 15:41:00
 description: ...
@@ -8,7 +8,7 @@ tags:
 - PostgreSQL
 ---
 
-之前为客户安装PostgreSQL时忘记挂载Volume了，现在数据库越来越大，需要给正在运行的容器挂载Volume。
+之前为客户安装PostgreSQL时忘记Bind mount了，现在数据库越来越大，需要给正在运行的容器Bind mount。
 
 测试环境
 
@@ -17,7 +17,7 @@ $ cat /etc/redhat-release
 CentOS Linux release 7.6.1810 (Core)
 ```
 
-先安装一个PostgreSQL 10，并不挂载Volume。
+先安装一个PostgreSQL 10，并不Bind mount。
 
 ```bash
 $ docker pull postgres:10
