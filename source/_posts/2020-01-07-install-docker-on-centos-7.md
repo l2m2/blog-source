@@ -160,7 +160,10 @@ $ docker inspect topikm6doc | grep Mounts -A 20
                 "Propagation": "rslave"
             }
         ],
-
+# 查看所有Volume
+$ docker volume ls
+# 查看某个具体Volume的信息
+$ docker volume inspect thdash_app-db-data
 ```
 
 
