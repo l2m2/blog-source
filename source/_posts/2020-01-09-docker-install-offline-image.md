@@ -13,27 +13,65 @@ tags:
 
 ## 离线安装docker
 
-在有docker环境的机器上运行：
+从Docker官网下载Docker的二进制文件。
 
-```bash
-$ yumdownloader --resolve docker-ce
+官网下载地址：https://download.docker.com/linux/static/stable/x86_64/
+
+解压
+
+```
+$ tar xvzf docker-20.10.6.tgz
 ```
 
-将会生成`docker-ce-19.03.11-3.el7.x86_64.rpm`类似的rpm包。
+移动到/usr/bin
 
-再在目标机上安装rpm包。
-
-```bash
-$ rpm -ivh docker-ce-19.03.11-3.el7.x86_64.rpm
+```
+$ mv docker/* /usr/bin/
 ```
 
-安装过程中可能会缺少其他rpm包，再去下载对应的离线rpm包安装即可。
+制作服务文件docker.service
 
-安装完成后启动docker。
+```
+$ vim /etc/systemd/system/docker.service
+[root@iZbp13sno1lc2yxlhjc4b3Z ~]#vim /etc/systemd/system/docker.service
+[Unit]
+Description=Docker Application Container Engine
+After=network-online.target firewalld.service
+Wants=network-online.target
 
-```bash
+[Service]
+Type=notify
+ExecStart=/usr/bin/dockerd
+ExecReload=/bin/kill -s HUP $MAINPID
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+TimeoutStartSec=0
+Delegate=yes
+KillMode=process
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+ 
+[Install]
+WantedBy=multi-user.target
+```
+
+启动服务
+
+```
+$ chmod +x /etc/systemd/system/docker.service
+$ systemctl daemon-reload
 $ systemctl start docker
 $ systemctl enable docker
+```
+
+如果`systemctl start docker`一直卡着不动，可以尝试先关闭防火墙再启动。启动之后再开启防火墙。
+
+```
+$ systemctl stop firewalld
+$ systemctl start docker
+$ systemctl start firewalld
 ```
 
 ## 离线安装docker镜像
