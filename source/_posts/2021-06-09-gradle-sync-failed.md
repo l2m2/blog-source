@@ -1,5 +1,5 @@
 ---
-title: 解决“Gradle sync failed: unable to load class xxx”的错误
+title: 解决Gradle sync failed: unable to load class xxx的错误
 toc: false
 date: 2021-06-09 16:27:00
 description: ...

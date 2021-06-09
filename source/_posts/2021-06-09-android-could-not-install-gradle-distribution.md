@@ -1,5 +1,5 @@
 ---
-title: 解决“Could not install Gradle distribution from ...”的错误
+title: 解决Could not install Gradle distribution from ...的错误
 toc: false
 date: 2021-06-08 15:27:00
 description: ...
