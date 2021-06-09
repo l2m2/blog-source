@@ -17,11 +17,11 @@ Could not install Gradle distribution from 'https://services.gradle.org/distribu
 
 1. 根据提示手动下载错误信息中的https://services.gradle.org/distributions/gradle-6.7.1-bin.zip
 
-2. 进入`%USERPROFILE%\.gradle\wrapper\dists\gradle-6.7.1-bin\bwlcbys1h7rz3272sye1xwiv6`目录下。随机字符串`bwlcbys1h7rz3272sye1xwiv6`可能有差异。
+2. 进入*%USERPROFILE%/.gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6*目录下。随机字符串*bwlcbys1h7rz3272sye1xwiv*可能有差异。
 
    删除该目录下原来的所有文件。
 
-3. 将步骤1中下载好的zip包拷贝到`%USERPROFILE%\.gradle\wrapper\dists\gradle-6.7.1-bin\bwlcbys1h7rz3272sye1xwiv6`下。
+3. 将步骤1中下载好的zip包拷贝到*%USERPROFILE%/.gradle/wrapper/dists/gradle-6.7.1-bin/bwlcbys1h7rz3272sye1xwiv6*下。
 
 4. 重启Android Studio。
 

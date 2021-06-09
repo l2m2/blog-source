@@ -21,7 +21,7 @@ Gradle sync failed: unable to load class 'sync_studio_tooling_boskacbmhla13vwj7d
 
    解决方案：修改为正确的对应版本。
 
-   修改工程目录下的`build.gradle`中Gradle插件的版本, 例如修改为`4.0.1`。
+   修改工程目录下的*build.gradle*中Gradle插件的版本, 例如修改为`4.0.1`。
 
    ```
    // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -39,7 +39,7 @@ Gradle sync failed: unable to load class 'sync_studio_tooling_boskacbmhla13vwj7d
    }
    ```
 
-   再修改工程目录下的`gradle\wrapper\gradle-wrapper.properties`中Gradle的版本，例如修改为`6.1.1`。
+   再修改工程目录下的*gradle/wrapper/gradle-wrapper.properties*中Gradle的版本，例如修改为`6.1.1`。
 
    ```
    distributionBase=GRADLE_USER_HOME
