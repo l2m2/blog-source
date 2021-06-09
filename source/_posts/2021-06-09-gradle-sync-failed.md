@@ -58,7 +58,7 @@ Gradle sync failed: unable to load class 'sync_studio_tooling_boskacbmhla13vwj7d
    解决方案：删除缓存，重新来过。
    
    ```shell
-   $ rm rf ~/.gradle/
+   $ rm -rf ~/.gradle/
    ```
    
    
