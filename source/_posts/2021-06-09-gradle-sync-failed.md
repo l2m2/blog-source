@@ -1,8 +1,8 @@
 ---
-title: 解决Gradle sync failed: unable to load class xxx的错误
+title: 解决Gradle sync failed的错误
 toc: false
 date: 2021-06-09 16:27:00
-description: ...
+description: unable to load class xxx
 tags:
 - Android
 ---
