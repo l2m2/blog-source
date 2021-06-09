@@ -1,7 +1,7 @@
 ---
 title: 解决“Could not install Gradle distribution from ...”的错误
 toc: false
-date: 2021-06-09 15:27:00
+date: 2021-06-08 15:27:00
 description: ...
 tags:
 - Android
