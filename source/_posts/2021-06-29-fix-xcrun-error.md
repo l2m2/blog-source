@@ -1,5 +1,5 @@
 ---
-title: 解决MacOS下运行Go项目出现的xcrun: error: invalid active developer path问题
+title: 解决MacOS下运行Go项目出现的xcrun error invalid active developer path问题
 toc: false
 date: 2021-06-29 16:30:00
 description: ...
