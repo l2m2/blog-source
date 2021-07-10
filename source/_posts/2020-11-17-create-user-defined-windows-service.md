@@ -1,19 +1,21 @@
 ---
-title: 手动创建Windows服务
+title: 使用instsrv和srvany创建Windows服务
 toc: false
 date: 2020-11-17 11:07:00
-description: 通过instsrv.exe和srvany.exe手动创建一个Windows服务。
+description: 通过instsrv.exe和srvany.exe创建一个Windows服务。
 tags:
 - Windows
 ---
 
-本文介绍如何通过`instsrv.exe`和`srvany.exe`手动创建一个Windows服务。
+本文介绍如何通过`instsrv.exe`和`srvany.exe`创建一个Windows服务。
 
 `instsrv.exe`： 服务注册工具。
 
 `srvany.exe`: 注册程序的服务外壳。
 
 你可以在[这里](https://github.com/l2m2/resource/tree/master/instsrv)下载它们。
+
+## 手动创建
 
 **操作步骤**
 
@@ -34,6 +36,7 @@ tags:
    ```
 
    其中toppdtserver是服务名称。
+
 
 3. 打开注册表并找到子项 
 
@@ -56,6 +59,20 @@ tags:
    ![](/images/create-user-defined-windows-service-1.png)
 
 8. 大功告成！
+
+## 脚本创建
+
+创建服务批处理
+
+```shell
+set SERVICENAME=xxx
+%~dp0instsrv %SERVICENAME% remove
+%~dp0instsrv %SERVICENAME% %~dp0srvany.exe
+
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%SERVICENAME%\Parameters" /v Application /t REG_SZ /d %~dp0start.bat /f
+
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\%SERVICENAME%\Parameters" /v AppDirectory /t REG_SZ /d %~dp0 /f
+```
 
 ## 常见问题
 
